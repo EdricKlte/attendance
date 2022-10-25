@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("sidebar.css");
+@import url("header.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --font: "Roboto", sans-serif;
+  --main-color: #78a861;
+  --secondary-color: #e1b460;
+}
+
+.main {
+  background-color: #f5f5f5;
+  height: auto;
+  padding-bottom: 20px;
+
+  /* layout */
+  display: grid;
+  grid-template-rows: 130px 340px 1fr;
+  justify-items: center;
+  row-gap: 20px;
+}
+
+/* container */
+.main .container {
+  grid-row: 2/3;
+
+  height: 330px;
+  width: 800px;
+  background-color: white;
+  padding: 10px;
+}
+.main .container form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  justify-content: center;
+  align-items: center;
+}
+.main .container form h1 {
+  text-align: center;
+  font-family: var(--font);
+  font-weight: 500;
+}
+.main .container form input {
+  height: 35px;
+  width: 500px;
+}
+.main .container form select {
+  height: 35px;
+  width: 500px;
+}
+.main .container form input:nth-child(5) {
+  height: 35px;
+  width: 500px;
+
+  cursor: pointer;
+  font-family: var(--font);
+  font-weight: 500;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+}
+
+.main .container2 {
+  grid-row: 3/4;
+
+  height: auto;
+  width: 820px;
+  background-color: white;
+}
+.main .container2 table,
+.main .container2 table tr,
+.main .container2 table tr th,
+.main .container2 table tr td {
+  border-collapse: collapse;
+  width: 820px;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+
+  font-family: var(--font);
+}
+th {
+  font-weight: 500;
+  background-color: var(--main-color);
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #ececec;
+}
+.main .container2 table tr td input {
+  height: 30px;
+  width: 80px;
+
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+}

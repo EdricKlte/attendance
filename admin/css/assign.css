@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("sidebar.css");
+@import url("header.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --font: "Roboto", sans-serif;
+  --main-color: #78a861;
+  --secondary-color: #e1b460;
+}
+
+.main {
+  background-color: #f5f5f5;
+  height: auto;
+
+  /* layout */
+  display: grid;
+  grid-template-rows: 130px 1fr 1fr;
+  justify-items: center;
+  row-gap: 20px;
+}
+
+/* main content */
+.main .container {
+  grid-row: 2/3;
+
+  height: 400px;
+  width: 1000px;
+  background-color: white;
+}
+.main .container h1 {
+  text-align: center;
+  font-family: var(--font);
+  font-weight: 500;
+}
+.main .container form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.main .container form select {
+  height: 35px;
+  width: 500px;
+}
+.main .container form input {
+  height: 35px;
+  width: 500px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+}
+
+/* list */
+.main .list {
+  grid-row: 3/4;
+
+  height: auto;
+  width: 1000px;
+  background-color: white;
+}
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  width: 1000px;
+  text-align: center;
+  padding: 10px;
+  font-family: var(--font);
+  font-weight: 400;
+}
+th {
+  font-weight: 500;
+  background-color: var(--main-color);
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #ececec;
+}
+.deleteRows {
+  height: 30px;
+  width: 100px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+}
+.editRows {
+  height: 30px;
+  width: 100px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+}

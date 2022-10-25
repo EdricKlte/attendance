@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("header.css");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+}
+:root {
+  --font: "Roboto", sans-serif;
+  --main-color: #78a861;
+  --secondary-color: #e1b460;
+  --textbox-color: #edeaea;
+}
+
+.main {
+  background-image: url("../img/sjc-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  /* layout */
+  display: grid;
+  grid-template-rows: 130px 1fr;
+  justify-items: center;
+}
+
+.main .container {
+  grid-row: 2/3;
+
+  height: 450px;
+  width: 450px;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
+
+  /* layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.main .container img {
+  height: 70px;
+  width: 70px;
+
+  margin-top: 30px;
+}
+.main .container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.main .container form input {
+  height: 20px;
+  width: 300px;
+  background-color: var(--textbox-color);
+  border: none;
+
+  padding: 10px;
+}
+.main .container form input:nth-child(3) {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  height: 36px;
+  width: 320px;
+}
+.main .container form p {
+  margin: 0 0 0 -100px;
+}
+.main .container form a {
+  text-decoration: none;
+  color: #293ce4;
+}
