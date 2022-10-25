@@ -104,12 +104,30 @@
         <!-- student Id -->
         <input type="text" name="updateStudentId" placeholder="Enter student number" value="<?php echo $studentId ?>">
 
-
         <!-- course -->
-        <select name="updateCourse" value="<?php echo $course ?>">
-          <option>--Course--</option>
-          <option value="BSIT">BSIT</option>
-          <option value="BSN">BSN</option>
+        <select name="updateCourse" id="s1" value="<?php echo $course ?>">
+          <option disabled selected value>--Course--</option>
+          <option value="BS Criminology">BS Criminology</option>
+          <option value="BS Accountancy">BS Accountancy</option>
+          <option value="BS Nursing">BS Nursing</option>
+          <option value="BS Respiratory Theraphy">BS Respiratory Theraphy</option>
+          <option value="BS Medical Technology">BS Medical Technology</option>
+          <option value="BS Information Technology">BS Information Technology</option>
+          <option value="BS Radiologic Technology">BS Radiologic Technology</option>
+          <option value="BS Physical Theraphy">BS Physical Theraphy</option>
+          <option value="BS Psychology">BS Psychology</option>
+          <option value="BS Pharmacy">BS Pharmacy</option>
+          <option value="BS Hospitality Management">BS Hospitality Management</option>
+          <option value="BS Tourism Management">BS Tourism Management</option>
+          <option value="BS Business Administration Major in Financial Management">BS Business Administration Major in
+            Financial Management</option>
+          <option value="BS Business Administration Major in Marketing Management">BS Business Administration Major in
+            Marketing Management</option>
+          <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>
+          <option value="Bachelor of Secondary Education Major in English">Bachelor of Secondary Education Major in
+            English</option>
+          <option value="Bachelor of Secondary Education Major in Filipino">Bachelor of Secondary Education Major in
+            Filipino</option>
         </select>
 
         <!-- section -->
@@ -117,12 +135,12 @@
           <option disabled selected value>--section--</option>
           <?php while ($resultSection = mysqli_fetch_array($sqlSection)) { ?>
           <option><?php echo $resultSection['section'] ?></option>
-        <?php } ?>
+          <?php } ?>
         </select>
 
         <!-- subject -->
         <select name="updateSubject" value="<?php echo $subject ?>">
-          <option>--Subject--</option>
+          <option disabled selected value>--Subject--</option>
           <?php while($resultSubjects = mysqli_fetch_array($sqlSubject)) { ?>
           <option value="<?php echo $resultSubjects['subject_name'] ?>"><?php echo $resultSubjects['subject_name'] ?>
           </option>

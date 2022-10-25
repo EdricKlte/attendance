@@ -92,7 +92,7 @@
         <select name="teachers" id="teachers" required>
           <option disabled selected value>--Assign a Teachers--</option>
           <?php while($resultsTeachers = mysqli_fetch_array($sqlTeachers)) { ?>
-          <option value="<?php echo $resultsTeachers['fullname'] ?>"><?php echo $resultsTeachers['fullname'] ?>
+          <option value="<?php echo $resultsTeachers['id'] ?>"><?php echo $resultsTeachers['fullname'] ?>
           </option>
           <?php } ?>
         </select>
@@ -133,7 +133,7 @@
         </tr>
         <?php while($results = mysqli_fetch_array($sqlDisplay)) { ?>
         <tr>
-          <td><?php echo $results['department'] ?></td>
+          <td><?php echo $results['departments'] ?></td>
           <td><?php echo $results['teachers'] ?></td>
           <td><?php echo $results['sections'] ?></td>
           <td><?php echo $results['subjects'] ?></td>
@@ -141,7 +141,7 @@
             <form action="./php/assign-update.php" method="post">
               <input type="submit" value="EDIT" name="edit" class="editRows">
               <input type="hidden" name="editId" value="<?php echo $results['id'] ?>">
-              <input type="hidden" name="editDepartment" value="<?php echo $results['department'] ?>">
+              <input type="hidden" name="editDepartment" value="<?php echo $results['departments'] ?>">
               <input type="hidden" name="editTeachers" value="<?php echo $results['teachers'] ?>">
               <input type="hidden" name="editSections" value="<?php echo $results['sections'] ?>">
               <input type="hidden" name="editSubjects" value="<?php echo $results['subjects'] ?>">

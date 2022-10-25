@@ -3,7 +3,7 @@
   require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
   $id = $_SESSION['id'];
-  $query = "SELECT * FROM assign WHERE users_id = '$id' ";
+  $query = "SELECT * FROM assign WHERE teachers = '$id' ";
   $sql = mysqli_query($con, $query);
 ?>
 
@@ -76,7 +76,7 @@
           <td><?php echo $results['sections'] ?></td>
           <td>
             <form action="listofclass.php" method="get">
-              <button type="submit" id="OpenClass" name="OpenClass" value="<?php 
+              <button type="submit" class="open-class" id="OpenClass" name="OpenClass" value="<?php 
                 echo $results['subjects']."+".$results['sections'];
                 ?>">Open Class
               </button>

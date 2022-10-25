@@ -28,7 +28,7 @@
     $updateSections = $_POST['updateSections'];
     $updateSubjects = $_POST['updateSubjects'];
 
-    $queryUpdate = "UPDATE assign SET department = '$updateDepartments', teachers = '$updateTeachers', sections = '$updateSections', subjects = '$updateSubjects' WHERE section_id = '$updateId'" ;
+    $queryUpdate = "UPDATE assign SET departments = '$updateDepartments', teachers = '$updateTeachers', sections = '$updateSections', subjects = '$updateSubjects' WHERE id = '$updateId'" ;
     $sqlUpdate = mysqli_query($con, $queryUpdate);
 
     pathTo('assign');
@@ -110,7 +110,7 @@
         <select name="updateTeachers" id="teachers" value="<?php echo $editTeachers ?>" required>
           <option disabled selected value>--Assign a Teachers--</option>
           <?php while($resultsTeachers = mysqli_fetch_array($sqlTeachers)) { ?>
-          <option value="<?php echo $resultsTeachers['fullname'] ?>"><?php echo $resultsTeachers['fullname'] ?>
+          <option value="<?php echo $resultsTeachers['id'] ?>"><?php echo $resultsTeachers['fullname'] ?>
           </option>
           <?php } ?>
         </select>

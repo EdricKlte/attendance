@@ -17,7 +17,7 @@
     $updateYearLevel = $_POST['updateYearLevel'];
     $updateSection = $_POST['updateSection'];
 
-    $queryUpdate = "UPDATE add_section SET department = '$updateDepartment', course = '$updateCourse', year_level = '$updateYearLevel', section = '$updateSection' WHERE id = '$updateId' ";
+    $queryUpdate = "UPDATE add_section SET department = '$updateDepartment', course = '$updateCourse', year_level = '$updateYearLevel', section = '$updateSection' WHERE section_id = '$updateId' ";
     $sqlUpdate = mysqli_query($con, $queryUpdate);
 
     pathTo('add-section');

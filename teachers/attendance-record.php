@@ -55,9 +55,9 @@
 <body>
 
 
-  
-     
-  
+
+
+
 
 
 
@@ -71,7 +71,7 @@
     </div>
 
     <!-- sidebar -->
-   <div class="sidebar close">
+    <div class="sidebar close">
       <ul class="menu-container">
         <i class="fa-solid fa-xmark" id="close"></i>
 
@@ -125,13 +125,13 @@
           ?>
 
         </tr>
-        
+
         <center>
           <?php
             echo "Month ".$month;
             echo " Year ".$year;
           ?>
-      </center>
+        </center>
         <?php while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
           $studentID = $classListResult['students_id'];
           $studentFn = $classListResult['first_name'];
@@ -192,17 +192,17 @@
         <button id="Records" onclick="openRecords()" disabled>Record Lists</button>
         <button id="Create" onclick="openCreate()">Create Record</button>
         <button onclick="listOfClass()">List of Class</button>
-        <button id="Attendance1" onclick="openAttendance()" >Attendance Record</button><br>
+        <button id="Attendance1" onclick="openAttendance()">Attendance Record</button><br>
 
-        </center>
-        Teacher: <?php echo $teacher."<br>";?>
-        Section: <?php echo $sections."<br>";?>
-        Subject: <?php echo $subjects;?>
-      
-        <div class="DateClass" id="DateClass">
+      </center>
+      Teacher: <?php echo $teacher."<br>";?>
+      Section: <?php echo $sections."<br>";?>
+      Subject: <?php echo $subjects;?>
+
+      <div class="DateClass" id="DateClass">
       </div>
     </div>
-    
+
 
 
 
@@ -212,10 +212,11 @@
 
       <form action="create_sheets.php" method="post">
         Create records for whole year
-        <input type="checkbox" id="checkbox1" name="wholeYear" onchange="toggleBox1()" value="true" ><br>
+        <input type="checkbox" id="checkbox1" name="wholeYear" onchange="toggleBox1()" value="true"><br>
 
 
-        Use Current Date:<input type="checkbox" id="checkbox" name="useDateToday" onchange="toggleBox()" value="true"><br>
+        Use Current Date:<input type="checkbox" id="checkbox" name="useDateToday" onchange="toggleBox()"
+          value="true"><br>
         Month:<input type="number" id="month" name="month" max="12"><br>
         Year:<input type="number" id="year" name="year"><br>
         Section:
@@ -234,42 +235,44 @@
             ?>
           </option>
         </select><br>
-        
-        <input type="submit" >
+
+        <input type="submit">
       </form>
     </div>
 
-    
+
 
     <!--RECORDS-->
     <div class="container" id="records" style="height:300px;overflow: auto;">
       <table class="different">
-        <form  action="deleteRecord.php" method="POST">
+        <form action="deleteRecord.php" method="POST">
 
-        <div class="DeleteDiv" id="DeleteDiv" style="background-color:rgba(0, 255, 0,0.8);position:absolute;top:50%;left:50%;border: solid;border-color:rgba(0, 255, 0);display:none;">
-          <input type="button" value="X" onclick="actions(this.value)"><br>
-          
+          <div class="DeleteDiv" id="DeleteDiv"
+            style="background-color:rgba(0, 255, 0,0.8);position:absolute;top:50%;left:50%;border: solid;border-color:rgba(0, 255, 0);display:none;">
+            <input type="button" value="X" onclick="actions(this.value)"><br>
 
 
-          <input type="submit" name="Delete" value="Delete" style="height:50px;width:100px;margin:20px;">
-          <?php
+
+            <input type="submit" name="Delete" value="Delete" style="height:50px;width:100px;margin:20px;">
+            <?php
           if($_SESSION['archive']=="no"){
           ?>
-          <input type="submit" name="Archive" value="Archive" style="height:50px;width:100px;margin:20px;"><br>
-          <?php 
+            <input type="submit" name="Archive" value="Archive" style="height:50px;width:100px;margin:20px;"><br>
+            <?php 
           }
           elseif($_SESSION['archive']=="yes"){
             ?>
-            <input type="submit" name="Archive2" value="Remove from Archive" style="height:50px;width:150px;margin:20px;"><br>
-          <?php
+            <input type="submit" name="Archive2" value="Remove from Archive"
+              style="height:50px;width:150px;margin:20px;"><br>
+            <?php
           }
           ?>
-          <input type="checkbox" onchange="checkAll()" id="checkbox3" name="selectAll" value="true">Select all
-        </div>
-        
-        
-        
-        <?php 
+            <input type="checkbox" onchange="checkAll()" id="checkbox3" name="selectAll" value="true">Select all
+          </div>
+
+
+
+          <?php 
           if($_SESSION['archive']=="yes"){
             $querySheetRecord1 = "SELECT * FROM sheet_record WHERE users_id='$usersId' AND sections='$sections' AND subjects = '$subjects' AND archive ='yes' ";
           echo "<tr ;>";
@@ -283,15 +286,15 @@
             } 
 
         ?>
-        <tr> 
-          <th>
-            <input type="button" value="Action" onclick="actions(this.value)">
-            
-          </th>  
-          <th>Month</th>
-          <th>Year</th>
-          <th ></th>  
-        </tr>
+          <tr>
+            <th>
+              <input type="button" value="Action" onclick="actions(this.value)">
+
+            </th>
+            <th>Month</th>
+            <th>Year</th>
+            <th></th>
+          </tr>
 
           <?php
             $sqlSheetRecord1 = mysqli_query($con, $querySheetRecord1);
@@ -311,19 +314,18 @@
               }
               else{
               ?>
-                <tr>
-                  <td style="height:200px;" colspan="4">
-                    Please Create Record!!
-                  </td>
-                </tr>
-              <?php
+          <tr>
+            <td style="height:200px;" colspan="4">
+              Please Create Record!!
+            </td>
+          </tr>
+          <?php
               }
               ?>
-                <script>
-                  
-                  document.getElementById("Attendance1").style.display = "none";
-                </script>
-              <?php
+          <script>
+          document.getElementById("Attendance1").style.display = "none";
+          </script>
+          <?php
             }
           ?>
         </form>
@@ -334,33 +336,31 @@
     <br>
   </div>
 </body>
+
 </html>
 
 
 
 <script type="text/javascript">
-
-
-var allowRemove="false";
-var countRemove=0;
+var allowRemove = "false";
+var countRemove = 0;
 var checkBox = document.getElementById("checkbox");
 var checkBox1 = document.getElementById("checkbox1");
 var month = document.getElementById("month");
 var year = document.getElementById("year");
 var div = document.getElementById("DeleteDiv");
 
-function checkAll(){
+function checkAll() {
   var checkboxes = document.getElementsByClassName("foo");
 
-  if(checkbox3.checked == true){
-    
-    for(var a=0; a<checkboxes.length;a++  ){
+  if (checkbox3.checked == true) {
+
+    for (var a = 0; a < checkboxes.length; a++) {
 
       checkboxes[a].checked = true;
     }
-  }
-  else if(checkbox3.checked == false){
-    for(var a=0; a<checkboxes.length;a++){
+  } else if (checkbox3.checked == false) {
+    for (var a = 0; a < checkboxes.length; a++) {
 
       checkboxes[a].checked = false;
     }
@@ -369,48 +369,46 @@ function checkAll(){
 
 
 
-function toggleBox1(){
-  
-  if(checkBox1.checked == true){
+function toggleBox1() {
+
+  if (checkBox1.checked == true) {
     month.disabled = true;
     month.value = "";
-  }
-  else if(checkBox.checked == false){
+  } else if (checkBox.checked == false) {
     month.disabled = false;
   }
 }
 
-function toggleBox(){
+function toggleBox() {
 
-  if (checkBox.checked == true){
+  if (checkBox.checked == true) {
     year.disabled = true;
     month.disabled = true;
     year.value = "";
     month.value = "";
-  } 
-  else {
+  } else {
     year.disabled = false;
-    if(checkBox1.checked == false){
+    if (checkBox1.checked == false) {
       month.disabled = false;
     }
   }
 }
-function toggleRemove(){
+
+function toggleRemove() {
   var toggleBox = document.getElementById("toggleRemove");
-  if(toggleBox.checked == true){
+  if (toggleBox.checked == true) {
     allowRemove = "true";
-  }
-  else{
+  } else {
     allowRemove = "false";
-    if(countRemove >= 1){
+    if (countRemove >= 1) {
       alert("Webpage will restart after you delete");
-    location.reload();
-  }
+      location.reload();
+    }
   }
 }
 
 
-function openCreate(){
+function openCreate() {
 
   document.getElementById("records").style.display = "none";
   document.getElementById("container").style.display = "none";
@@ -420,7 +418,8 @@ function openCreate(){
   document.getElementById("Records").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 }
-function openRecords(){
+
+function openRecords() {
   document.getElementById("records").style.display = "block";
   document.getElementById("container").style.display = "none";
   document.getElementById("Records").disabled = true;
@@ -430,7 +429,7 @@ function openRecords(){
   document.getElementById("Attendance1").disabled = false;
 }
 
-function openAttendance(){
+function openAttendance() {
   document.getElementById("records").style.display = "none";
   document.getElementById("container").style.display = "block";
   document.getElementById("Attendance1").disabled = true;
@@ -440,91 +439,93 @@ function openAttendance(){
   document.getElementById("Records").disabled = false;
 }
 
-function listOfClass(){
-  open("listofclass.php","_self");
+function listOfClass() {
+  open("listofclass.php", "_self");
 }
 
-function AttendStatus(id, name, value,){//UPDATE STATUS (ATTENDANCE STATUS)
+function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
 
 
-  if(allowRemove == "false"){
-    if(value == "P" || value == "A"){//CHECK IF VALUE IS PRESENT OR ABSENT
+  if (allowRemove == "false") {
+    if (value == "P" || value == "A") { //CHECK IF VALUE IS PRESENT OR ABSENT
       $.ajax({
         url: "processData.php",
         method: 'get',
-        data: {id,name,value},
-        success: function(data){
+        data: {
+          id,
+          name,
+          value
+        },
+        success: function(data) {
           console.log(data);
         }
-    })
+      })
 
-      if(value == "P"){
+      if (value == "P") {
         var Element1 = document.getElementById(id);
-        Element1.style.backgroundColor ="#D2001A";
-        Element1.value="A";
-      }
-
-      else if(value == "A"){
+        Element1.style.backgroundColor = "#D2001A";
+        Element1.value = "A";
+      } else if (value == "A") {
         var Element1 = document.getElementById(id);
-        Element1.style.backgroundColor ="#38E54D";
-        Element1.value="P";
+        Element1.style.backgroundColor = "#38E54D";
+        Element1.value = "P";
       }
-    }
-  
+    } else { //IF VALUE IS NOT PRESENT OR ABSENT, ADD NEW STATUS(PRESENT)
 
-
-    else{//IF VALUE IS NOT PRESENT OR ABSENT, ADD NEW STATUS(PRESENT)
-    
       var Element1 = document.getElementById(id);
-      Element1.style.backgroundColor ="#B1AD25";
+      Element1.style.backgroundColor = "#B1AD25";
       Element1.disabled = true;
-        $.ajax({
-          url: "addData.php",
-          method: 'get',
-          data: {id,name,value},
-          success: function(data){
+      $.ajax({
+        url: "addData.php",
+        method: 'get',
+        data: {
+          id,
+          name,
+          value
+        },
+        success: function(data) {
           console.log(data);
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {   
-              document.getElementById(id).name = this.responseText;     
-            };
-            xmlhttp.open("GET", "gethint.php?q=", true);
-            xmlhttp.send();
-          }
-        })
-      setTimeout(function(){
-        Element1.style.backgroundColor ="#38E54D";
-        Element1.value="P";
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            document.getElementById(id).name = this.responseText;
+          };
+          xmlhttp.open("GET", "gethint.php?q=", true);
+          xmlhttp.send();
+        }
+      })
+      setTimeout(function() {
+        Element1.style.backgroundColor = "#38E54D";
+        Element1.value = "P";
         Element1.disabled = false;
-      },500);
+      }, 500);
     }
-  }
-  else if(allowRemove == "true" ){//DELETE ATTENDANCE
-    if(value == "P"|| value =="A"){
+  } else if (allowRemove == "true") { //DELETE ATTENDANCE
+    if (value == "P" || value == "A") {
       var Element1 = document.getElementById(id);
-      Element1.style.backgroundColor ="#B1AD25";
+      Element1.style.backgroundColor = "#B1AD25";
       Element1.disabled = true;
-        $.ajax({
-          url: "deleteData.php",
-          method: 'get',
-          data: {name},
-          success: function(data){
+      $.ajax({
+        url: "deleteData.php",
+        method: 'get',
+        data: {
+          name
+        },
+        success: function(data) {
           console.log(data);
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {   
-              document.getElementById(id).value = this.responseText;     
-            };
-            xmlhttp.open("GET", "newButtonData.php?q=", true);
-            xmlhttp.send();
-          }
-        })
-        setTimeout(function(){
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            document.getElementById(id).value = this.responseText;
+          };
+          xmlhttp.open("GET", "newButtonData.php?q=", true);
+          xmlhttp.send();
+        }
+      })
+      setTimeout(function() {
         countRemove = countRemove + 1;
-        Element1.style.backgroundColor ="#D2D3C9";
+        Element1.style.backgroundColor = "#D2D3C9";
         Element1.disabled = false;
-      },500);
-    }
-    else{
+      }, 500);
+    } else {
       //alert("ERROR FKYOU")
     }
   }
@@ -534,61 +535,55 @@ function AttendStatus(id, name, value,){//UPDATE STATUS (ATTENDANCE STATUS)
 //MAKE DIV MOVEABLE/DRAGGABLE
 
 div.addEventListener('mousedown', function(e) {
-    isDown = true;
-    offset = [
-        div.offsetLeft - e.clientX,
-        div.offsetTop - e.clientY
-    ];
+  isDown = true;
+  offset = [
+    div.offsetLeft - e.clientX,
+    div.offsetTop - e.clientY
+  ];
 }, true);
 
 document.addEventListener('mouseup', function() {
-    isDown = false;
+  isDown = false;
 }, true);
 
 document.addEventListener('mousemove', function(event) {
-    event.preventDefault();
-    if (isDown) {
-        mousePosition = {
+  event.preventDefault();
+  if (isDown) {
+    mousePosition = {
 
-            x : event.clientX,
-            y : event.clientY
+      x: event.clientX,
+      y: event.clientY
 
-        };
-        div.style.left = (mousePosition.x + offset[0]) + 'px';
-        div.style.top  = (mousePosition.y + offset[1]) + 'px';
-    }
+    };
+    div.style.left = (mousePosition.x + offset[0]) + 'px';
+    div.style.top = (mousePosition.y + offset[1]) + 'px';
+  }
 }, true);
 
 
-function actions(action){
-  if(action == "Action"){
+function actions(action) {
+  if (action == "Action") {
     div.style.display = "block";
-  }
-  else if(action == "X"){
+  } else if (action == "X") {
     div.style.display = "none";
   }
 }
-
 </script>
 
 <?php
   if(isset($_GET['ID'])){
     ?>
-    <script type="text/javascript">  
-      document.getElementById("records").style.display = "none";
-      document.getElementById("container").style.display = "block";
-      document.getElementById("create").style.display = "none";
-      document.getElementById("Records").disabled = false;
-      document.getElementById("Attendance1").disabled = true;
-    </script>
-  <?php
+<script type="text/javascript">
+document.getElementById("records").style.display = "none";
+document.getElementById("container").style.display = "block";
+document.getElementById("create").style.display = "none";
+document.getElementById("Records").disabled = false;
+document.getElementById("Attendance1").disabled = true;
+</script>
+<?php
 }
 
 
 
 
 ?>
-
-
-
-

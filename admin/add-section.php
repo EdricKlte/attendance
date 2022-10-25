@@ -136,7 +136,7 @@
           <td>
             <form action="/attendance/admin/php/section-update.php" method="post">
               <input type="submit" name="edit" value="Edit" />
-              <input type="hidden" name="editId" value="<?php echo $results['id'] ?>">
+              <input type="hidden" name="editId" value="<?php echo $results['section_id'] ?>">
               <input type="hidden" name="editDepartment" value="<?php echo $results['department'] ?>">
               <input type="hidden" name="editCourse" value="<?php echo $results['course'] ?>">
               <input type="hidden" name="editYearLevel" value="<?php echo $results['year_level'] ?>">

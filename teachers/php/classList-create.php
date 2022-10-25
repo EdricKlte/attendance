@@ -16,7 +16,8 @@
     $subject = $_POST['subject'];
     $studentNumber =$_POST['studentNumber'];
 
-    $queryClass = "INSERT INTO class_list VALUES (null, '$id', '$lastName', '$firstName', '$course', '$section', '$subject', '$studentNumber')";
+    $queryClass = "INSERT INTO class_list 
+    VALUES (null, '$id', '$studentNumber', '$lastName', '$firstName', '$course', '$section', '$subject')";
     $sqlClass = mysqli_query($con, $queryClass);
     
     pathTo('class-list');
