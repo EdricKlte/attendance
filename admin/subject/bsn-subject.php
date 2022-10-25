@@ -64,7 +64,7 @@
         <a href="../assign.php">
           <li>Assign a Class</li>
         </a>
-        <form action="./php/logout.php" method="post">
+        <form action="../php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
       </ul>

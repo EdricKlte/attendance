@@ -39,7 +39,7 @@ body {
 table,
 tr,
 th,
-td:not(.different){
+td:not(.different) {
   border-collapse: collapse;
   border: 1px solid black;
 }
@@ -53,13 +53,11 @@ td:not(.different){
   display: none;
 }
 
-
-#Status1{
-  width:100px;
+#Status1 {
+  width: 100px;
 }
 
-.different{
-
+.different {
   text-align: center;
   width: 990px;
 }
@@ -71,9 +69,43 @@ td:not(.different){
   background-color: white;
   padding: 15px;
 }
-.Button button{
+.Button button {
   height: 30px;
   width: 200px;
   margin: 10px;
 }
 
+.form-sheets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* checkbox */
+.checkbox {
+  height: 15px;
+  width: 15px;
+}
+/* date */
+input[type="number"] {
+  height: 25px;
+  width: 245px;
+}
+/* subject and section */
+.subjects,
+.sections {
+  height: 30px;
+  width: 245px;
+}
+/* submit */
+.submit-sheets {
+  height: 30px;
+  width: 245px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  font-family: var(--font);
+  font-family: 500;
+  cursor: pointer;
+}

@@ -54,14 +54,6 @@
 
 <body>
 
-
-
-
-
-
-
-
-
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
@@ -84,9 +76,7 @@
         <a href="listofclass.php">
           <li>List of Class</li>
         </a>
-        <a href="attendance-record.php">
-          <li>Attendance Records</li>
-        </a>
+
         <a href="change-password.php">
           <li>Change Password</li>
         </a>
@@ -95,6 +85,7 @@
         </form>
       </ul>
     </div>
+
     <div class="container2" id="container">
 
       <div>
@@ -210,25 +201,33 @@
     <!--NEW SHEET-->
     <div class="container2" id="create">
 
-      <form action="create_sheets.php" method="post">
-        Create records for whole year
-        <input type="checkbox" id="checkbox1" name="wholeYear" onchange="toggleBox1()" value="true"><br>
+      <form action="create_sheets.php" method="post" class="form-sheets">
 
-
-        Use Current Date:<input type="checkbox" id="checkbox" name="useDateToday" onchange="toggleBox()"
+        <!-- date -->
+        <label for="Create records for whole year">Create records for whole year</label>
+        <input type="checkbox" class="checkbox" id="checkbox1" name="wholeYear" onchange="toggleBox1()"
           value="true"><br>
-        Month:<input type="number" id="month" name="month" max="12"><br>
-        Year:<input type="number" id="year" name="year"><br>
-        Section:
-        <select id="sections" name="sections">
+        <label for="Use Current Date:">Use Current Date:</label>
+        <input type="checkbox" class="checkbox" id="checkbox" name="useDateToday" onchange="toggleBox()"
+          value="true"><br>
+        <label for="Month:">Month:</label>
+        <input type="number" id="month" name="month" max="12"><br>
+        <label for="Year:">Year:</label>
+        <input type="number" id="year" name="year"><br>
+
+        <!-- section -->
+        <label for="Section:">Section:</label>
+        <select id="sections" name="sections" class="sections">
           <option value="<?php echo $_SESSION['sections']; ?>">
             <?php 
               echo $_SESSION['sections'];
             ?>
           </option>
         </select><br>
-        Subject:
-        <select id="subjects" name="subjects">
+
+        <!-- subject -->
+        <label for="Subject:">Subject:</label>
+        <select id="subjects" name="subjects" class="subjects">
           <option value="<?php echo $_SESSION['subjects']; ?>">
             <?php 
               echo $_SESSION['subjects'];
@@ -236,7 +235,7 @@
           </option>
         </select><br>
 
-        <input type="submit">
+        <input type="submit" class="submit-sheets">
       </form>
     </div>
 
