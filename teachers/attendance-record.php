@@ -246,27 +246,27 @@
       <table class="different">
         <form action="deleteRecord.php" method="POST">
 
-          <div class="DeleteDiv" id="DeleteDiv"
-            style="background-color:rgba(0, 255, 0,0.8);position:absolute;top:50%;left:50%;border: solid;border-color:rgba(0, 255, 0);display:none;">
-            <input type="button" value="X" onclick="actions(this.value)"><br>
+          <div class="DeleteDiv" id="DeleteDiv">
+            <input type="button" class="close" value="X" onclick="actions(this.value)"><br>
 
 
 
-            <input type="submit" name="Delete" value="Delete" style="height:50px;width:100px;margin:20px;">
+            <input type="submit" class="deleted" name="Delete" value="Delete">
             <?php
           if($_SESSION['archive']=="no"){
           ?>
-            <input type="submit" name="Archive" value="Archive" style="height:50px;width:100px;margin:20px;"><br>
+            <input type="submit" class="archive" name="Archive" value="Archive"><br>
             <?php 
           }
           elseif($_SESSION['archive']=="yes"){
             ?>
-            <input type="submit" name="Archive2" value="Remove from Archive"
-              style="height:50px;width:150px;margin:20px;"><br>
+            <input type="submit" name="Archive2" class="archive2" value="Remove from Archive"><br>
             <?php
           }
           ?>
-            <input type="checkbox" onchange="checkAll()" id="checkbox3" name="selectAll" value="true">Select all
+            <label class="select-all" for="selectall">Select All</label>
+            <input type="checkbox" class="select-all-checkbox" onchange="checkAll()" id="checkbox3" name="selectAll"
+              value="true">
           </div>
 
 
@@ -287,7 +287,7 @@
         ?>
           <tr>
             <th>
-              <input type="button" value="Action" onclick="actions(this.value)">
+              <input type="button" class="action" value="Action" onclick="actions(this.value)">
 
             </th>
             <th>Month</th>

@@ -41,7 +41,16 @@ tr,
 th,
 td:not(.different) {
   border-collapse: collapse;
-  border: 1px solid black;
+  text-align: center;
+}
+th {
+  background-color: var(--main-color);
+  font-family: var(--font);
+  font-weight: 500;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 .main .container2 {
@@ -60,6 +69,7 @@ td:not(.different) {
 .different {
   text-align: center;
   width: 990px;
+  border: none;
 }
 
 .Button {
@@ -73,6 +83,10 @@ td:not(.different) {
   height: 30px;
   width: 200px;
   margin: 10px;
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  font-weight: 500;
 }
 
 .form-sheets {
@@ -107,5 +121,93 @@ input[type="number"] {
   color: white;
   font-family: var(--font);
   font-family: 500;
+  cursor: pointer;
+}
+/* action button */
+.action {
+  height: 30px;
+  width: 100px;
+  border: none;
+  background-color: var(--secondary-color);
+  font-family: var(--font);
+  font-weight: 500;
+  color: black;
+}
+
+td a {
+  text-decoration: none;
+  height: 30px;
+  width: 30px;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: 500;
+}
+
+/* delete in action */
+.DeleteDiv {
+  background-color: var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  display: none;
+}
+.close {
+  background-color: red;
+  color: white;
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+.deleted {
+  height: 50px;
+  width: 100px;
+  margin: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.archive {
+  height: 50px;
+  width: 100px;
+  margin: 20px;
+  background-color: rgb(56, 229, 77);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+.archive2 {
+  height: 50px;
+  width: 150px;
+  margin: 20px;
+  background-color: rgb(56, 229, 77);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+/* checkbox for select all */
+.select-all-checkbox {
+  height: 20px;
+  width: 20px;
+}
+.select-all {
+  position: absolute;
+  left: 30px;
+  bottom: 5px;
+}
+/* button or archive */
+input[name="openArchive"] {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+input[name="CloseArchive"] {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
   cursor: pointer;
 }
