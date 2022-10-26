@@ -52,6 +52,12 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+tr:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+td:hover{
+  background-color: rgba(255,255,255,0.5); 
+}
 
 .main .container2 {
   grid-row: 3/3;
@@ -61,6 +67,11 @@ tr:nth-child(even) {
   padding: 15px;
   display: none;
 }
+
+
+
+
+
 
 #Status1 {
   width: 100px;

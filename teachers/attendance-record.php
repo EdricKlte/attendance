@@ -8,8 +8,7 @@
   $teacher = $_SESSION['name'];
   $sections = $_SESSION['sections'];
   $subjects = $_SESSION['subjects'];
-  $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
-  $sqlClassList = mysqli_query($con, $queryClassList);
+
   
 
 
@@ -98,7 +97,12 @@
 
 
       <table style="margin-top:10px;">
-        <tr>
+        
+          
+            
+          
+          <tr>
+          <th></th>
           <th class="different">List of Students</th>
           <?php 
           $daysCount;
@@ -123,13 +127,33 @@
             echo " Year ".$year;
           ?>
         </center>
-        <?php while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
+        <form method="post" action="attendance-record.php?ID=<?php echo $sheetID; ?>">
+          <input placeholder="Last Name" type="text" name="InsertName"><button type="submit">Search</button> 
+        </form>
+
+        <?php 
+        $count = 0; 
+
+        if(isset($_POST['InsertName'])){
+
+          $name = $_POST['InsertName'];
+          echo $name;
+          $queryClassList = "SELECT * FROM class_list WHERE last_name LIKE'%$name%'AND users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
+        }
+        else{
+
+          $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
+        }
+        $sqlClassList = mysqli_query($con, $queryClassList);
+        while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
           $studentID = $classListResult['students_id'];
           $studentFn = $classListResult['first_name'];
           $studentLn = $classListResult['last_name'];
           $section1 = $classListResult['section'];
           $subject1 = $classListResult['subject'];
-          echo "<tr><td>".$studentLn. ', ' .$studentFn."</td>"; 
+          $count = $count + 1;
+          echo "<tr><td>".$count.".</td>";
+          echo "<td>".$studentLn. ', ' .$studentFn."</td>"; 
           
           //$select = "SELECT * FROM attendance WHERE students_id LIKE '$studentID%'";
 
@@ -157,11 +181,11 @@
                 }//elseif1
 
               }//if1
-              else{
+              /*else{
               echo "<td><form method=GET>";
 
               echo "<input type=button onclick=AttendStatus(this.id,this.name,this.value)  id=".$studentID."_".$month."_".$a."_".$sheetID." name=".$studentFn." value=".$a." style=font-weight:bold;color:white;background-color:#D2D3C9;height:25px;width:25px;border:none; /></form></td>";
-              }
+              }*/
             }//if0
             else{
               echo "<td><form method=GET>";
