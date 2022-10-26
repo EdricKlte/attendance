@@ -138,7 +138,6 @@
         if(isset($_POST['InsertName'])){
 
           $name = $_POST['InsertName'];
-          echo $name;
           $queryClassList = "SELECT * FROM class_list WHERE last_name LIKE'%$name%'AND users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
         }
         else{
