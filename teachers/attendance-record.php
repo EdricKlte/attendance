@@ -198,6 +198,12 @@
         
           echo "<tr>";
         }//WHILE
+        if(isset($_POST['InsertName'])){
+          echo "<tr><td colspan=100>No with ".$name." Surname!!!</td></tr>";
+        }
+        elseif($count == 0){
+          echo "<tr><td colspan=100>No student!!!</td></tr>";
+        }
         ?>
       </table>
     </div>
