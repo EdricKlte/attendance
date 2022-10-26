@@ -129,6 +129,7 @@
         </center>
         <form method="post" action="attendance-record.php?ID=<?php echo $sheetID; ?>">
           <input placeholder="Last Name" type="text" name="InsertName"><button type="submit">Search</button> 
+          <button onclick="clearSearch()">Clear Search</button>
         </form>
 
         <?php 
@@ -198,11 +199,13 @@
         
           echo "<tr>";
         }//WHILE
-        if(isset($_POST['InsertName'])){
-          echo "<tr><td colspan=100>No with ".$name." Surname!!!</td></tr>";
-        }
-        elseif($count == 0){
-          echo "<tr><td colspan=100>No student!!!</td></tr>";
+        if($count == 0){
+          if(isset($_POST['InsertName'])){
+            echo "<tr><td colspan=100>No with ".$name." Surname!!!</td></tr>";
+          }
+          else{
+            echo "<tr><td colspan=100>No student!!!</td></tr>";
+          }
         }
         ?>
       </table>
@@ -562,7 +565,6 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
 
 
 //MAKE DIV MOVEABLE/DRAGGABLE
-
 div.addEventListener('mousedown', function(e) {
   isDown = true;
   offset = [
@@ -587,16 +589,24 @@ document.addEventListener('mousemove', function(event) {
     div.style.left = (mousePosition.x + offset[0]) + 'px';
     div.style.top = (mousePosition.y + offset[1]) + 'px';
   }
-}, true);
+}, true);//END
 
 
-function actions(action) {
+function actions(action) {//OPEN ACTIONS BOX
   if (action == "Action") {
     div.style.display = "block";
   } else if (action == "X") {
     div.style.display = "none";
   }
 }
+
+
+function clearSearch(){
+  open("attendance-record.php", "_self");
+}
+
+
+
 </script>
 
 <?php
