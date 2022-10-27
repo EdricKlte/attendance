@@ -66,7 +66,6 @@
         <input type="text" name="username" placeholder="Enter Username" required />
         <input type="password" name="password" placeholder="Enter Password" required />
         <input type="submit" value="Login" name="login" />
-        <p>Forgot Password? <a href="#">Click Here</a></p>
       </form>
     </div>
   </div>
