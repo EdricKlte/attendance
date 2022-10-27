@@ -5,9 +5,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
 
 $pdf = new FPDF();
-$pdf->AddPage();
+$pdf->AddPage('L');
 $pdf->SetFont('Arial','',10);
 
+
+$width = 7;
 
 $usersId = $_SESSION['id']; 
 $teacher = $_SESSION['name'];
@@ -44,10 +46,10 @@ if($sheetRecord = mysqli_fetch_array($sqlSheetRecord)){
     $month = $sheetRecord['month'];
     $sheetID = $sheetRecord['id'];
 $pdf->ln();
-$pdf->Cell(40,10,"Student List",1,0,'C');
+$pdf->Cell(50,10,"Student List",1,0,'C');
     for($a=1; $a<=$daysCount;$a++){
 
-      $pdf->Cell(5,10,$a,1,0,'C');
+      $pdf->Cell($width,10,$a,1,0,'C');
     }
 }
 
@@ -59,7 +61,7 @@ while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
     $section1 = $classListResult['section'];
     $subject1 = $classListResult['subject'];
 
-    $pdf->Cell(40,10,$studentFn." ".$studentLn,1,0,'C');
+    $pdf->Cell(50,10,$studentFn." ".$studentLn,1,0,'C');
 
     for($a=1;$a<=$daysCount;$a++){//FOR1
         $select = "SELECT * FROM attendance WHERE sections = '$section1' AND subjects='$subject1' AND students_id = '$studentID' AND day = $a AND month = $month AND sheetID = $sheetID ";
@@ -67,15 +69,15 @@ while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
     if($row=mysqli_fetch_array($sqlselect)){//IF0 GET THE ATTENDANCE OFSTUDENT ON THIS DA
         if($classListResult['students_id']==$row['students_id']){//IF1
             if($row['Status']==1 && $row['day']==$a){//IF2
-                $pdf->Cell(5,10,"P",1,0,'C');
+                $pdf->Cell($width,10,"P",1,0,'C');
             }//IF2
             elseif($row['Status']==0 && $row['day']==$a){
-                $pdf->Cell(5,10,"A",1,0,'C');
+                $pdf->Cell($width,10,"A",1,0,'C');
             }
         }//IF1
     }//IF0
     else{
-        $pdf->Cell(5,10," ",1,0,'C');
+        $pdf->Cell($width,10," ",1,0,'C');
     }
     }//FOR1
     $pdf->ln();
