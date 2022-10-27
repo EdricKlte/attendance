@@ -132,6 +132,12 @@
           <button type="submit" class="search-surname">Search</button>
           <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
+        
+
+        <button class="search-surname" onclick="exportPDF()" type="button">
+          Export PDF
+        </button>
+
 
         <?php 
         $count = 0; 
@@ -603,6 +609,10 @@ function actions(action) { //OPEN ACTIONS BOX
 
 function clearSearch() {
   open("attendance-record.php", "_self");
+}
+
+function exportPDF(){//OPEN EXPORT
+  window.open('php/PDFexport.php?ID=<?php echo $sheetID; ?>');
 }
 </script>
 
