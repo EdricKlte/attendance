@@ -97,11 +97,11 @@
 
 
       <table style="margin-top:10px;">
-        
-          
-            
-          
-          <tr>
+
+
+
+
+        <tr>
           <th></th>
           <th class="different">List of Students</th>
           <?php 
@@ -128,8 +128,9 @@
           ?>
         </center>
         <form method="post" action="attendance-record.php?ID=<?php echo $sheetID; ?>">
-          <input placeholder="Last Name" type="text" name="InsertName"><button type="submit">Search</button> 
-          <button onclick="clearSearch()">Clear Search</button>
+          <input placeholder="Last Name" type="text" name="InsertName">
+          <button type="submit" class="search-surname">Search</button>
+          <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
 
         <?php 
@@ -588,10 +589,10 @@ document.addEventListener('mousemove', function(event) {
     div.style.left = (mousePosition.x + offset[0]) + 'px';
     div.style.top = (mousePosition.y + offset[1]) + 'px';
   }
-}, true);//END
+}, true); //END
 
 
-function actions(action) {//OPEN ACTIONS BOX
+function actions(action) { //OPEN ACTIONS BOX
   if (action == "Action") {
     div.style.display = "block";
   } else if (action == "X") {
@@ -600,12 +601,9 @@ function actions(action) {//OPEN ACTIONS BOX
 }
 
 
-function clearSearch(){
+function clearSearch() {
   open("attendance-record.php", "_self");
 }
-
-
-
 </script>
 
 <?php

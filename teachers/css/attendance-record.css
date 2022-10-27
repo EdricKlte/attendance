@@ -53,10 +53,10 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 tr:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
-td:hover{
-  background-color: rgba(255,255,255,0.5); 
+td:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .main .container2 {
@@ -67,11 +67,6 @@ td:hover{
   padding: 15px;
   display: none;
 }
-
-
-
-
-
 
 #Status1 {
   width: 100px;
@@ -221,4 +216,29 @@ input[name="CloseArchive"] {
   color: white;
   border: none;
   cursor: pointer;
+}
+/* search */
+input[name="InsertName"] {
+  height: 30px;
+  width: 160px;
+}
+.search-surname {
+  height: 35px;
+  width: 100px;
+  border: none;
+  background-color: var(--main-color);
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.clear-search {
+  height: 35px;
+  width: 100px;
+  border: none;
+  background-color: var(--main-color);
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  margin-left: 10px;
 }
