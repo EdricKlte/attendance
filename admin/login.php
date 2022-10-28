@@ -53,14 +53,12 @@
   <div class="main">
     <!-- header -->
     <div class="header">
-      <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="./img/sjc.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="./img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
     <div class="container">
-      <img src="./img/sjc-icon.png" alt="Icon" />
+      <img src="./img/admin.png" alt="Icon" />
 
       <form action="login.php" method="post">
         <input type="text" name="username" placeholder="Enter Username" required />

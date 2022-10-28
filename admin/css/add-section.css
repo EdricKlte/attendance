@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 @import url("sidebar.css");
+@import url("header.css");
 
 html,
 body {
@@ -8,8 +9,8 @@ body {
 }
 :root {
   --font: "Roboto", sans-serif;
-  --main-color: #78a861;
-  --secondary-color: #e1b460;
+  --main-color: #1a4e43;
+  --secondary-color: #d79a2a;
 }
 
 .main {
@@ -21,53 +22,6 @@ body {
   grid-template-rows: 130px 1fr 1fr;
   justify-items: center;
   row-gap: 20px;
-}
-
-/* header */
-.main .header {
-  grid-row: 1/2;
-
-  width: 100vw;
-  height: 120px;
-  background-color: var(--main-color);
-  position: fixed;
-  color: white;
-
-  /* layout */
-  display: grid;
-  grid-template-rows: 1fr 10px;
-  grid-template-columns: 100px 290px 1fr 100px;
-  align-items: center;
-}
-.main .header i {
-  grid-column: 2/3;
-
-  font-size: 30px;
-  cursor: pointer;
-}
-.main .header img {
-  grid-column: 3/4;
-  grid-row: 1/2;
-
-  height: 100px;
-  width: 100px;
-}
-.main .header p {
-  margin-left: 130px;
-
-  grid-column: 3/4;
-  grid-row: 1/2;
-  font-family: var(--font);
-  font-weight: 500;
-  font-size: 25px;
-}
-.main .header2 {
-  grid-column: 1/4;
-  grid-row: 2/3;
-
-  width: 100vw;
-  height: 10px;
-  background-color: var(--secondary-color);
 }
 
 /* main content */

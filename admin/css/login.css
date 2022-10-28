@@ -9,8 +9,8 @@ body {
 }
 :root {
   --font: "Roboto", sans-serif;
-  --main-color: #78a861;
-  --secondary-color: #e1b460;
+  --main-color: #1a4e43;
+  --secondary-color: #d79a2a;
   --textbox-color: #edeaea;
 }
 
@@ -43,8 +43,8 @@ body {
   gap: 10px;
 }
 .main .container img {
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
 
   margin-top: 30px;
 }

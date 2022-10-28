@@ -15,8 +15,7 @@
   <div class="main">
     <!-- header -->
     <div class="header">
-      <img src="./teachers/img/sjc_logo.png" alt="SJC Icon" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="./admin/img/sjc-bg-black.png" alt="SJC Logo">
       <div class="header2"></div>
     </div>
 

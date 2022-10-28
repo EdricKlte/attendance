@@ -39,11 +39,9 @@
     <!-- header -->
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="../img/sjc.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="../img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
-
     <!-- sidebar -->
     <div class="sidebar close">
       <ul class="menu-container">
