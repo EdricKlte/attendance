@@ -49,8 +49,7 @@
     <!-- header -->
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="./img/sjc_logo.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="./img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
@@ -68,7 +67,7 @@
         <a href="listofclass.php">
           <li>List of Class</li>
         </a>
-         
+
         <a href="change-password.php">
           <li>Change Password</li>
         </a>
