@@ -118,7 +118,8 @@
           }
 
           ?>
-
+          <th>P</th>
+          <th>A</th>
         </tr>
 
         <center>
@@ -163,16 +164,18 @@
           echo "<td>".$studentLn. ', ' .$studentFn."</td>"; 
           
           //$select = "SELECT * FROM attendance WHERE students_id LIKE '$studentID%'";
-
+          $totalPresent = 0;
+          $totalAbsent = 0;
           for($a=1;$a<=$daysCount;$a++){
             $select = "SELECT * FROM attendance WHERE sections = '$section1' AND subjects='$subject1' AND students_id = '$studentID' AND day = $a AND month = $month AND sheetID = $sheetID ";
             $sqlselect = mysqli_query($con, $select);
 
+            
             if($row=mysqli_fetch_array($sqlselect)){//if0
               if($classListResult['students_id']==$row['students_id']){//if1
-                if($row['Status']==1 && $row['day']==$a && $row['month']==$month && $row['subjects']==$subject1  ){//if2
-                  $InputID = $studentID . $row['id'] ."_". $sheetID;
-                  
+                if($row['Status']==1 && $row['day']==$a ){//if2
+                  $InputID = $studentID ."_". $row['id'] ."_". $sheetID;
+                  $totalPresent = $totalPresent +1;
                   echo"<td><form method=GET>";
                   
                   echo "<input type=button onclick=AttendStatus(this.id,this.name,this.value) name=".$row['id']." id=".$InputID."  style=font-weight:bold;color:white;background-color:#38E54D;height:25px;width:25px;border:none; value='P'  >";
@@ -180,7 +183,7 @@
                 }//if2
                 elseif($row['Status']==0 && $row['day']==$a){//elseif1
                   $InputID = $studentID . $row['id'] ."_". $sheetID;
-                  
+                  $totalAbsent = $totalAbsent + 1;
                   echo "<td><form method=GET>";
 
                   echo"<input type=button onclick=AttendStatus(this.id,this.name,this.value) id=".$InputID." name=" .$row['id']." value='A' style=font-weight:bold;color:white;background-color:#D2001A;height:25px;width:25px;border:none; />"; 
@@ -199,13 +202,20 @@
 
               echo "<input type=button onclick=AttendStatus(this.id,this.name,this.value)  id=".$studentID."_".$month."_".$a."_".$sheetID." name=".$studentFn." value=".$a." style=font-weight:bold;color:white;background-color:#D2D3C9;height:25px;width:25px;border:none; /></form></td>";
             }//ELSE
+
           }//FOR LOOP
 
+          $IdArray =(explode("_",$InputID));
 
-        
-          echo "<tr>";
+          echo "<td id=present".$IdArray[0].">";
+          echo $totalPresent."</td>";
+          echo "<td absent".$IdArray[0].">";  
+          echo $totalAbsent."</td></tr>";
+
+          //echo "<td>present".$IdArray[0]."</td>";
+
         }//WHILE
-        if($count == 0){
+        if($count == 0){//check if is more than 1
           if(isset($_POST['InsertName'])){
             echo "<tr><td colspan=100>No with ".$name." Surname!!!</td></tr>";
           }
@@ -313,7 +323,7 @@
           <?php 
           if($_SESSION['archive']=="yes"){
             $querySheetRecord1 = "SELECT * FROM sheet_record WHERE users_id='$usersId' AND sections='$sections' AND subjects = '$subjects' AND archive ='yes' ";
-          echo "<tr ;>";
+          echo "<tr>";
           echo "<td  style=height:50px; colspan=4><input type=submit name=CloseArchive value='Close Archive' style=height:30px;></td></tr>";
 
           }
@@ -499,11 +509,14 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
         }
       })
 
-      if (value == "P") {
+      if (value == "P") {//Check if value is present
         var Element1 = document.getElementById(id);
         Element1.style.backgroundColor = "#D2001A";
         Element1.value = "A";
-      } else if (value == "A") {
+
+      } 
+
+      else if (value == "A") {//Check if value is absent
         var Element1 = document.getElementById(id);
         Element1.style.backgroundColor = "#38E54D";
         Element1.value = "P";
