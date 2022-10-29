@@ -126,8 +126,7 @@
           <th>Course</th>
           <th>Year Level</th>
           <th>Section</th>
-          <th></th>
-          <th></th>
+          <th colspan="2">Action</th>
         </tr>
         <?php while($results = mysqli_fetch_array($sql)) { ?>
         <tr>
@@ -137,7 +136,7 @@
           <td><?php echo $results['section'] ?></td>
           <td>
             <form action="/attendance/admin/php/section-update.php" method="post">
-              <input type="submit" name="edit" value="Edit" />
+              <input type="submit" name="edit" value="Edit" class="edit" />
               <input type="hidden" name="editId" value="<?php echo $results['section_id'] ?>">
               <input type="hidden" name="editDepartment" value="<?php echo $results['department'] ?>">
               <input type="hidden" name="editCourse" value="<?php echo $results['course'] ?>">
@@ -147,7 +146,7 @@
           </td>
           <td>
             <form action="./php/section-delete.php" method="post">
-              <input type="submit" name="delete" value="Delete" />
+              <input type="submit" name="delete" value="Delete" class="delete" />
               <input type="hidden" name="deleteId" value="<?php echo $results['section_id'] ?>">
             </form>
           </td>

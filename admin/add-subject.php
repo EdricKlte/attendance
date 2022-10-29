@@ -115,8 +115,7 @@
           <th>Subject</th>
           <th>Year Level</th>
           <th>Course</th>
-          <th></th>
-          <th></th>
+          <th colspan="2">Action</th>
         </tr>
 
         <?php while($results = mysqli_fetch_array($sql)) { ?>

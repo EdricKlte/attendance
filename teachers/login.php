@@ -12,10 +12,10 @@
   }
 
   if (isset($_POST['login'])) {
-    $email = trim($_POST['email']);
+    $employeeNo = trim($_POST['employeeNo']);
     $password = trim($_POST['password']);
 
-    $queryLogin = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $queryLogin = "SELECT * FROM users WHERE employee_no = '$employeeNo' AND password = '$password'";
     $sqlLogin = mysqli_query($con, $queryLogin);
     $result = mysqli_fetch_array($sqlLogin);
 
@@ -58,7 +58,7 @@
       <img src="./img/admin.png" alt="Icon" />
 
       <form action="login.php" method="post">
-        <input type="email" name="email" placeholder="Enter Phinma Email" required />
+        <input type="text" name="employeeNo" placeholder="Enter Employee No" required />
         <input type="password" name="password" placeholder="Enter Password" required />
         <input type="submit" value="Login" name="login" />
         <p>Forgot Password? <a href="./forgot-password.php">Click Here</a></p>

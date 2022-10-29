@@ -36,7 +36,7 @@
     </div>
 
     <!-- sidebar -->
-    <div class="sidebar close">
+    <div class="sidebar open">
       <ul class="menu-container">
         <i class="fa-solid fa-xmark" id="close"></i>
 
