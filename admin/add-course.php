@@ -49,6 +49,9 @@
         <a href="assign.php">
           <li>Assign a Class</li>
         </a>
+        <a href="register.php">
+          <li>Register a Teacher</li>
+        </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
@@ -68,6 +71,7 @@
       <table id="myTable">
         <tr>
           <th>Course</th>
+          <th></th>
           <th></th>
         </tr>
         <tr>

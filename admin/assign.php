@@ -64,6 +64,9 @@
         <a href="assign.php">
           <li>Assign a Class</li>
         </a>
+        <a href="register.php">
+          <li>Register a Teacher</li>
+        </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
@@ -91,7 +94,8 @@
         <select name="teachers" id="teachers" required>
           <option disabled selected value>--Assign a Teachers--</option>
           <?php while($resultsTeachers = mysqli_fetch_array($sqlTeachers)) { ?>
-          <option value="<?php echo $resultsTeachers['id'] ?>"><?php echo $resultsTeachers['fullname'] ?>
+          <option value="<?php echo $resultsTeachers['id'] ?>">
+            <?php echo $resultsTeachers['last_name'] . ', ' . $resultsTeachers['first_name'] ?>
           </option>
           <?php } ?>
         </select>
@@ -127,8 +131,7 @@
           <th>Teachers</th>
           <th>Sections</th>
           <th>Subjects</th>
-          <th></th>
-          <th></th>
+          <th colspan="2">Action</th>
         </tr>
         <?php while($results = mysqli_fetch_array($sqlDisplay)) { ?>
         <tr>

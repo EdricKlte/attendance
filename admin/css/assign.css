@@ -88,15 +88,19 @@ tr:nth-child(even) {
   height: 30px;
   width: 100px;
   border: none;
-  background-color: var(--main-color);
+  background-color: red;
   color: white;
   cursor: pointer;
+  font-weight: 500;
+  font-family: var(--font);
 }
 .editRows {
   height: 30px;
   width: 100px;
   border: none;
-  background-color: var(--main-color);
+  background-color: green;
   color: white;
   cursor: pointer;
+  font-weight: 500;
+  font-family: var(--font);
 }

@@ -52,6 +52,9 @@
         <a href="assign.php">
           <li>Assign a Class</li>
         </a>
+        <a href="register.php">
+          <li>Register a Teacher</li>
+        </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
@@ -112,8 +115,7 @@
           <th>Subject</th>
           <th>Year Level</th>
           <th>Course</th>
-          <th></th>
-          <th></th>
+          <th colspan="2">Action</th>
         </tr>
 
         <?php while($results = mysqli_fetch_array($sql)) { ?>

@@ -3,10 +3,10 @@
   require 'session.php';
 
   if (isset($_POST['submit'])) {
-    $department = $_POST['departments'];
-    $teachers = $_POST['teachers'];
-    $sections = $_POST['sections'];
-    $subjects = $_POST['subjects'];
+    $department = trim($_POST['departments']);
+    $teachers = trim($_POST['teachers']);
+    $sections = trim($_POST['sections']);
+    $subjects = trim($_POST['subjects']);
 
 
     $queryAssignCreate = "INSERT INTO assign VALUES (null, '$department', '$teachers', '$sections', '$subjects' ) ";
