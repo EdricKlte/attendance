@@ -3,7 +3,7 @@
 
   session_start();
 
-  if ($_SESSION['status'] == 'invalid' || empty($_SESSION['status'])) {
+  if (empty($_SESSION['status'])) {
     $_SESSION['status'] = 'invalid';
   }
 
@@ -18,9 +18,9 @@
     if (empty($username) && empty($password)) {
       echo '<script>alert("Please Fill up the fields")</script>';
     } else {
-      $queryLogin = "SELECT * FROM admin_account WHERE username = '$username' AND password = '$password'";
-      $sqlLogin = mysqli_query($con, $queryLogin);
-      $result = mysqli_fetch_array($sqlLogin);
+        $queryLogin = "SELECT * FROM admin_account WHERE username = '$username' AND password = '$password'";
+        $sqlLogin = mysqli_query($con, $queryLogin);
+        $result = mysqli_fetch_array($sqlLogin);
 
       if (mysqli_num_rows($sqlLogin) > 0) {
         $_SESSION['status'] = 'valid';

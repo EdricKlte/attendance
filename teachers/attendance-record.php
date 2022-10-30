@@ -205,11 +205,11 @@
 
           }//FOR LOOP
 
-          $IdArray =(explode("_",$InputID));
+          //$IdArray =(explode("_",$InputID));
 
-          echo "<td id=present".$IdArray[0].">";
+          echo "<td id=present>";
           echo $totalPresent."</td>";
-          echo "<td absent".$IdArray[0].">";  
+          echo "<td absent>";  
           echo $totalAbsent."</td></tr>";
 
           //echo "<td>present".$IdArray[0]."</td>";
@@ -229,7 +229,7 @@
 
     <div id="Button" class="Button">
       <center>
-        <button id="Records" onclick="openRecords()" disabled>Record Lists</button>
+        <button id="Records" class="records" onclick="openRecords()" disabled>Record Lists</button>
         <button id="Create" onclick="openCreate()">Create Record</button>
         <button onclick="listOfClass()">List of Class</button>
         <button id="Attendance1" onclick="openAttendance()">Attendance Record</button><br>
@@ -297,9 +297,6 @@
 
           <div class="DeleteDiv" id="DeleteDiv">
             <input type="button" class="close" value="X" onclick="actions(this.value)"><br>
-
-
-
             <input type="submit" class="deleted" name="Delete" value="Delete">
             <?php
           if($_SESSION['archive']=="no"){
@@ -462,9 +459,13 @@ function openCreate() {
   document.getElementById("container").style.display = "none";
   document.getElementById("Create").disabled = true;
   document.getElementById("create").style.display = "block";
+  document.getElementById("Create").style.backgroundColor = "#e1b460";
   div.style.display = "none";
+  document.getElementById("Records").style.backgroundColor ="#78a861";
+  document.getElementById("Attendance1").style.backgroundColor ="#78a861";
   document.getElementById("Records").disabled = false;
   document.getElementById("Attendance1").disabled = false;
+
 }
 
 function openRecords() {
@@ -472,7 +473,10 @@ function openRecords() {
   document.getElementById("container").style.display = "none";
   document.getElementById("Records").disabled = true;
   document.getElementById("create").style.display = "none";
+  document.getElementById("Records").style.backgroundColor = "#e1b460";
   div.style.display = "none";
+  document.getElementById("Create").style.backgroundColor ="#78a861";
+  document.getElementById("Attendance1").style.backgroundColor ="#78a861";
   document.getElementById("Create").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 }
@@ -482,9 +486,12 @@ function openAttendance() {
   document.getElementById("container").style.display = "block";
   document.getElementById("Attendance1").disabled = true;
   document.getElementById("create").style.display = "none";
+  document.getElementById("Attendance1").style.backgroundColor = "#e1b460";
   div.style.display = "none";
   document.getElementById("Create").disabled = false;
   document.getElementById("Records").disabled = false;
+    document.getElementById("Records").style.backgroundColor ="#78a861";
+  document.getElementById("Create").style.backgroundColor ="#78a861";
 }
 
 function listOfClass() {
@@ -539,16 +546,17 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function() {
             document.getElementById(id).name = this.responseText;
+            Element1.style.backgroundColor = "#38E54D";
+            Element1.value = "P";
+            Element1.disabled = false;
           };
           xmlhttp.open("GET", "gethint.php?q=", true);
           xmlhttp.send();
         }
       })
-      setTimeout(function() {
-        Element1.style.backgroundColor = "#38E54D";
-        Element1.value = "P";
-        Element1.disabled = false;
-      }, 500);
+      
+
+      
     }
   } else if (allowRemove == "true") { //DELETE ATTENDANCE
     if (value == "P" || value == "A") {
@@ -566,18 +574,19 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
           var xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function() {
             document.getElementById(id).value = this.responseText;
+            //setTimeout(function() {
+            countRemove = countRemove + 1;
+            Element1.style.backgroundColor = "#D2D3C9";
+            Element1.disabled = false;
+          //}, 500);
           };
           xmlhttp.open("GET", "newButtonData.php?q=", true);
           xmlhttp.send();
         }
       })
-      setTimeout(function() {
-        countRemove = countRemove + 1;
-        Element1.style.backgroundColor = "#D2D3C9";
-        Element1.disabled = false;
-      }, 500);
+
     } else {
-      //alert("ERROR FKYOU")
+      //alert("ERROR")
     }
   }
 }
@@ -632,12 +641,13 @@ function exportPDF(){//OPEN EXPORT
 <?php
   if(isset($_GET['ID'])){
     ?>
-<script type="text/javascript">
-document.getElementById("records").style.display = "none";
-document.getElementById("container").style.display = "block";
-document.getElementById("create").style.display = "none";
-document.getElementById("Records").disabled = false;
-document.getElementById("Attendance1").disabled = true;
+    <script type="text/javascript">
+    document.getElementById("records").style.display = "none";
+    document.getElementById("container").style.display = "block";
+    document.getElementById("create").style.display = "none";
+    document.getElementById("Records").disabled = false;
+    document.getElementById("Attendance1").disabled = true;
+    document.getElementById("Attendance1").style.backgroundColor ="#e1b460";
 </script>
 <?php
 }

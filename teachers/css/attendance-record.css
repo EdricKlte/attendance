@@ -89,10 +89,16 @@ td:hover {
   height: 30px;
   width: 200px;
   margin: 10px;
-  background-color: var(--main-color);
   border: none;
   color: white;
   font-weight: 500;
+
+}
+.Button .records{
+  background-color: var(--secondary-color);
+}
+.Button button:not(.records) {
+  background-color: var(--main-color);
 }
 
 .form-sheets {

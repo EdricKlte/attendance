@@ -9,6 +9,11 @@
 
   <!-- css -->
   <link rel="stylesheet" href="index.css" />
+
+  <?php 
+  session_start();
+  $_SESSION['teacher-status'] = 'invalid';
+  ?>
 </head>
 
 <body>

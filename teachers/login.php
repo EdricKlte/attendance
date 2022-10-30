@@ -3,7 +3,7 @@
 
   session_start();
   
-  if ($_SESSION['teacher-status'] == 'invalid' || empty($_SESSION['teacher-status'])) {
+  if (empty($_SESSION['teacher-status'])) {
     $_SESSION['teacher-status'] = 'invalid';
   }
   
