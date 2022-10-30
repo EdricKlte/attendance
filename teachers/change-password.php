@@ -13,6 +13,7 @@
 
     if ($oldPassword == $results['password']) {
       $newPassword = trim($_POST['newPassword']);
+      $newPassword = md5($newPassword);
 
       $queryUpdatePassword = "UPDATE users SET password = '$newPassword' WHERE id = '$userId' ";
       $sqlUpdatePassword = mysqli_query($con, $queryUpdatePassword);
