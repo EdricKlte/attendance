@@ -56,8 +56,7 @@
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="./img/sjc_logo.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="./img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
@@ -133,7 +132,7 @@
           <button type="submit" class="search-surname">Search</button>
           <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
-        
+
 
         <button class="search-surname" onclick="exportPDF()" type="button">
           Export PDF
@@ -461,8 +460,8 @@ function openCreate() {
   document.getElementById("create").style.display = "block";
   document.getElementById("Create").style.backgroundColor = "#e1b460";
   div.style.display = "none";
-  document.getElementById("Records").style.backgroundColor ="#78a861";
-  document.getElementById("Attendance1").style.backgroundColor ="#78a861";
+  document.getElementById("Records").style.backgroundColor = "#78a861";
+  document.getElementById("Attendance1").style.backgroundColor = "#78a861";
   document.getElementById("Records").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 
@@ -475,8 +474,8 @@ function openRecords() {
   document.getElementById("create").style.display = "none";
   document.getElementById("Records").style.backgroundColor = "#e1b460";
   div.style.display = "none";
-  document.getElementById("Create").style.backgroundColor ="#78a861";
-  document.getElementById("Attendance1").style.backgroundColor ="#78a861";
+  document.getElementById("Create").style.backgroundColor = "#78a861";
+  document.getElementById("Attendance1").style.backgroundColor = "#78a861";
   document.getElementById("Create").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 }
@@ -490,8 +489,8 @@ function openAttendance() {
   div.style.display = "none";
   document.getElementById("Create").disabled = false;
   document.getElementById("Records").disabled = false;
-    document.getElementById("Records").style.backgroundColor ="#78a861";
-  document.getElementById("Create").style.backgroundColor ="#78a861";
+  document.getElementById("Records").style.backgroundColor = "#78a861";
+  document.getElementById("Create").style.backgroundColor = "#78a861";
 }
 
 function listOfClass() {
@@ -516,14 +515,12 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
         }
       })
 
-      if (value == "P") {//Check if value is present
+      if (value == "P") { //Check if value is present
         var Element1 = document.getElementById(id);
         Element1.style.backgroundColor = "#D2001A";
         Element1.value = "A";
 
-      } 
-
-      else if (value == "A") {//Check if value is absent
+      } else if (value == "A") { //Check if value is absent
         var Element1 = document.getElementById(id);
         Element1.style.backgroundColor = "#38E54D";
         Element1.value = "P";
@@ -554,9 +551,9 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
           xmlhttp.send();
         }
       })
-      
 
-      
+
+
     }
   } else if (allowRemove == "true") { //DELETE ATTENDANCE
     if (value == "P" || value == "A") {
@@ -578,7 +575,7 @@ function AttendStatus(id, name, value, ) { //UPDATE STATUS (ATTENDANCE STATUS)
             countRemove = countRemove + 1;
             Element1.style.backgroundColor = "#D2D3C9";
             Element1.disabled = false;
-          //}, 500);
+            //}, 500);
           };
           xmlhttp.open("GET", "newButtonData.php?q=", true);
           xmlhttp.send();
@@ -633,7 +630,7 @@ function clearSearch() {
   open("attendance-record.php", "_self");
 }
 
-function exportPDF(){//OPEN EXPORT
+function exportPDF() { //OPEN EXPORT
   window.open('php/PDFexport.php?ID=<?php echo $sheetID; ?>');
 }
 </script>
@@ -641,13 +638,13 @@ function exportPDF(){//OPEN EXPORT
 <?php
   if(isset($_GET['ID'])){
     ?>
-    <script type="text/javascript">
-    document.getElementById("records").style.display = "none";
-    document.getElementById("container").style.display = "block";
-    document.getElementById("create").style.display = "none";
-    document.getElementById("Records").disabled = false;
-    document.getElementById("Attendance1").disabled = true;
-    document.getElementById("Attendance1").style.backgroundColor ="#e1b460";
+<script type="text/javascript">
+document.getElementById("records").style.display = "none";
+document.getElementById("container").style.display = "block";
+document.getElementById("create").style.display = "none";
+document.getElementById("Records").disabled = false;
+document.getElementById("Attendance1").disabled = true;
+document.getElementById("Attendance1").style.backgroundColor = "#e1b460";
 </script>
 <?php
 }
