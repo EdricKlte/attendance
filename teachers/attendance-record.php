@@ -134,9 +134,7 @@
         </form>
 
 
-        <button class="search-surname" onclick="exportPDF()" type="button">
-          Export PDF
-        </button>
+
 
 
         <?php 
@@ -630,9 +628,7 @@ function clearSearch() {
   open("attendance-record.php", "_self");
 }
 
-/*function exportPDF() { //OPEN EXPORT
-  window.open('php/PDFexport.php?ID=<?php //echo $sheetID; ?>');
-}*/
+
 </script>
 
 <?php
