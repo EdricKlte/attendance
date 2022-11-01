@@ -91,14 +91,13 @@ td:hover {
   margin: 10px;
   border: none;
   color: white;
+  background-color: var(--main-color);
   font-weight: 500;
 }
 .Button .records {
   background-color: var(--secondary-color);
 }
-.Button button:not(.records) {
-  background-color: var(--main-color);
-}
+
 
 .form-sheets {
   display: flex;

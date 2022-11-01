@@ -458,10 +458,10 @@ function openCreate() {
   document.getElementById("container").style.display = "none";
   document.getElementById("Create").disabled = true;
   document.getElementById("create").style.display = "block";
-  document.getElementById("Create").style.backgroundColor = "#e1b460";
+  document.getElementById("Create").style.backgroundColor = "#d79a2a";
   div.style.display = "none";
-  document.getElementById("Records").style.backgroundColor = "#78a861";
-  document.getElementById("Attendance1").style.backgroundColor = "#78a861";
+  document.getElementById("Records").style.backgroundColor = "#1a4e43";
+  document.getElementById("Attendance1").style.backgroundColor = "#1a4e43";
   document.getElementById("Records").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 
@@ -472,10 +472,10 @@ function openRecords() {
   document.getElementById("container").style.display = "none";
   document.getElementById("Records").disabled = true;
   document.getElementById("create").style.display = "none";
-  document.getElementById("Records").style.backgroundColor = "#e1b460";
+  document.getElementById("Records").style.backgroundColor = "#d79a2a";
   div.style.display = "none";
-  document.getElementById("Create").style.backgroundColor = "#78a861";
-  document.getElementById("Attendance1").style.backgroundColor = "#78a861";
+  document.getElementById("Create").style.backgroundColor = "#1a4e43";
+  document.getElementById("Attendance1").style.backgroundColor = "#1a4e43";
   document.getElementById("Create").disabled = false;
   document.getElementById("Attendance1").disabled = false;
 }
@@ -485,12 +485,12 @@ function openAttendance() {
   document.getElementById("container").style.display = "block";
   document.getElementById("Attendance1").disabled = true;
   document.getElementById("create").style.display = "none";
-  document.getElementById("Attendance1").style.backgroundColor = "#e1b460";
+  document.getElementById("Attendance1").style.backgroundColor = "#d79a2a";
   div.style.display = "none";
   document.getElementById("Create").disabled = false;
   document.getElementById("Records").disabled = false;
-  document.getElementById("Records").style.backgroundColor = "#78a861";
-  document.getElementById("Create").style.backgroundColor = "#78a861";
+  document.getElementById("Records").style.backgroundColor = "#1a4e43";
+  document.getElementById("Create").style.backgroundColor = "#1a4e43";
 }
 
 function listOfClass() {
@@ -630,21 +630,21 @@ function clearSearch() {
   open("attendance-record.php", "_self");
 }
 
-function exportPDF() { //OPEN EXPORT
-  window.open('php/PDFexport.php?ID=<?php echo $sheetID; ?>');
-}
+/*function exportPDF() { //OPEN EXPORT
+  window.open('php/PDFexport.php?ID=<?php //echo $sheetID; ?>');
+}*/
 </script>
 
 <?php
   if(isset($_GET['ID'])){
     ?>
 <script type="text/javascript">
-document.getElementById("records").style.display = "none";
-document.getElementById("container").style.display = "block";
-document.getElementById("create").style.display = "none";
-document.getElementById("Records").disabled = false;
-document.getElementById("Attendance1").disabled = true;
-document.getElementById("Attendance1").style.backgroundColor = "#e1b460";
+  document.getElementById("records").style.display = "none";
+  document.getElementById("container").style.display = "block";
+  document.getElementById("create").style.display = "none";
+  document.getElementById("Records").disabled = false;
+  document.getElementById("Attendance1").disabled = true;
+  document.getElementById("Attendance1").style.backgroundColor = "#d79a2a";
 </script>
 <?php
 }
