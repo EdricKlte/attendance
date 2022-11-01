@@ -133,21 +133,17 @@
           <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
 
-
-
-
-
         <?php 
         $count = 0; 
 
         if(isset($_POST['InsertName'])){
 
           $name = $_POST['InsertName'];
-          $queryClassList = "SELECT * FROM class_list WHERE last_name LIKE'%$name%'AND users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
+          $queryClassList = "SELECT * FROM class_list WHERE last_name LIKE'%$name%'AND users_id = '$usersId' AND section = '$sections' AND subject = '$subjects' order by last_name ";
         }
         else{
 
-          $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects'";
+          $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects' order by last_name ";
         }
         $sqlClassList = mysqli_query($con, $queryClassList);
         while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
@@ -164,7 +160,7 @@
           $totalPresent = 0;
           $totalAbsent = 0;
           for($a=1;$a<=$daysCount;$a++){
-            $select = "SELECT * FROM attendance WHERE sections = '$section1' AND subjects='$subject1' AND students_id = '$studentID' AND day = $a AND month = $month AND sheetID = $sheetID ";
+            $select = "SELECT * FROM attendance WHERE sections = '$section1' AND subjects='$subject1' AND students_id = '$studentID' AND day = $a AND month = $month AND sheetID = $sheetID  ";
             $sqlselect = mysqli_query($con, $select);
 
             
