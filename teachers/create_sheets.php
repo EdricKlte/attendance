@@ -27,7 +27,7 @@ if(!isset($_POST['wholeYear'])){
 	$sql = "INSERT INTO sheet_record (year, month, days, teacher,sections,subjects,users_id, archive) VALUES ( $year, $month, $daysCount, '".$teacher."','".$sections."','".$subjects."','".$usersId."','".$archive."')";
 
     if(mysqli_query($con, $sql)){
-    	echo "SUCCESS";
+    	//echo "SUCCESS";
     	pathTo('attendance-record');
     }
     else{
@@ -44,10 +44,10 @@ else if(isset($_POST['wholeYear'])){
 		$daysCount = cal_days_in_month(CAL_GREGORIAN, $month,$year );
 		$sql = "INSERT INTO sheet_record (year, month, days, teacher,sections,subjects,users_id,archive) VALUES ( $year, $month, $daysCount, '".$teacher."','".$sections."','".$subjects."','".$usersId."','".$archive."')";
 		if(mysqli_query($con, $sql)){
-			echo "success";
+			//echo "success";
 		}
 		else{
-			echo "fail";
+			//echo "fail";
 		}
 	}pathTo('attendance-record');
 }

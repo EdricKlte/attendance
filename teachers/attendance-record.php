@@ -636,6 +636,7 @@ function clearSearch() {
   document.getElementById("create").style.display = "none";
   document.getElementById("Records").disabled = false;
   document.getElementById("Attendance1").disabled = true;
+  document.getElementById("Records").style.backgroundColor = "#1a4e43";
   document.getElementById("Attendance1").style.backgroundColor = "#d79a2a";
 </script>
 <?php

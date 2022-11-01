@@ -12,7 +12,19 @@ $idCount = count($ID);
 foreach($ID as $id){
 	if(isset($_POST['Delete'])){
 		$deleteData = "DELETE FROM sheet_record WHERE id = $id";
+		$deleteData1 = "SELECT * FROM attendance WHERE sheetID = $id";
 		
+		$sqlSheetRecord = mysqli_query($con, $deleteData1);
+		
+		while($row = mysqli_fetch_array($sqlSheetRecord)){
+			echo $row['id'];
+			$attendanceID = $row['id'];
+			$deleteData2 = "DELETE FROM attendance WHERE id = $attendanceID ";
+			if(mysqli_query($con, $deleteData2)){
+				
+			}
+		}
+
 		if(mysqli_query($con, $deleteData)){
 			echo " SUCCESS ";
 			pathTo("attendance-record");
@@ -22,6 +34,10 @@ foreach($ID as $id){
 			pathTo("attendance-record");
 		}
 	}
+
+
+
+
 
 	elseif(isset($_POST['Archive'])){
 		$changeArchive = "UPDATE sheet_record SET Archive='yes' WHERE id = $id ";
