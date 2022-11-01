@@ -14,9 +14,9 @@
   if (isset($_POST['login'])) {
     $employeeNo = trim($_POST['employeeNo']);
     $password = trim($_POST['password']);
-    $password = md5($password);
+    $passwordEncrypt = md5($password);
 
-    $queryLogin = "SELECT * FROM users WHERE employee_no = '$employeeNo' AND password = '$password'";
+    $queryLogin = "SELECT * FROM users WHERE employee_no = '$employeeNo' AND password = '$passwordEncrypt'";
     $sqlLogin = mysqli_query($con, $queryLogin);
     $result = mysqli_fetch_array($sqlLogin);
 

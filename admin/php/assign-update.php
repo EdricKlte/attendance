@@ -58,8 +58,7 @@
     <!-- header -->
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="../img/sjc.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="../img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
@@ -82,6 +81,9 @@
         </a>
         <a href="../assign.php">
           <li>Assign a Class</li>
+        </a>
+        <a href="../register.php">
+          <li>Register a Teacher</li>
         </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />

@@ -47,8 +47,7 @@
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="../img/sjc.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="../img/sjc-bg-black.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
@@ -56,15 +55,24 @@
       <ul class="menu-container">
         <i class="fa-solid fa-xmark" id="close"></i>
         <a href="#">
-          <li>Welcome</li>
+          <li>Welcome <?php echo $_SESSION['username'] ?></li>
         </a>
-        <a href="#">
-          <li>Subject</li>
-        </a>
-        <a href="/attendance/admin/add-course.php">
+        <a href="../add-course.php">
           <li>Course</li>
         </a>
-        <form action="" method="post">
+        <a href="../add-subject.php">
+          <li>Subject</li>
+        </a>
+        <a href="../add-section.php">
+          <li>Section</li>
+        </a>
+        <a href="../assign.php">
+          <li>Assign a Class</li>
+        </a>
+        <a href="../register.php">
+          <li>Register a Teacher</li>
+        </a>
+        <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
       </ul>

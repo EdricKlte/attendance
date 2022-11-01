@@ -98,6 +98,7 @@
               <input type="hidden" name="editLastName" value="<?php echo $r['last_name'] ?>">
               <input type="hidden" name="editFirstName" value="<?php echo $r['first_name'] ?>">
               <input type="hidden" name="editEmployeeNo" value="<?php echo $r['employee_no'] ?>">
+              <input type="hidden" name="editPassword" value="<?php echo $r['password'] ?>">
             </form>
           </td>
           <td>

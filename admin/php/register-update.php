@@ -1,26 +1,29 @@
 <?php 
   // database
   require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
+
+  // session
   require 'session.php';
 
-  $queryAccounts = "SELECT * FROM users";
-  $sqlAccounts = mysqli_query($con, $queryAccounts);
-
   // edit
-  if (isset($_POST['edit'])) {
+  if(isset($_POST['edit'])) {
     $editId = $_POST['editId'];
-    $editLastName = $_POST['editLastName'];
-    $editFirstName = $_POST['editFirstName'];
-    $editEmployeeNo = $_POST['editEmployeeNo'];
+    $editLastName = trim($_POST['editLastName']);
+    $editFirstName = trim($_POST['editFirstName']);
+    $editEmployeeNo = trim($_POST['editEmployeeNo']);
+    $editPassword = trim($_POST['editPassword']);
   }
 
+  // update
   if (isset($_POST['update'])) {
-    $updateId = trim($_POST['updateId']);
+    $updateId = $_POST['updateId'];
     $updateLastName = trim($_POST['updateLastName']);
     $updateFirstName = trim($_POST['updateFirstName']);
     $updateEmployeeNo = trim($_POST['updateEmployeeNo']);
+    $updatePassword = trim($_POST['updatePassword']);
+    $passwordEncrypt = md5($updatePassword);
 
-    $queryUpdate = "UPDATE users SET last_name = '$updateLastName', first_name = '$updateFirstName', employee_no = '$updateEmployeeNo' ";
+    $queryUpdate = "UPDATE users SET last_name = '$updateLastName', first_name = '$updateFirstName', employee_no = '$updateEmployeeNo', password = '$passwordEncrypt' WHERE id = '$updateId' ";
     $sqlUpdate = mysqli_query($con, $queryUpdate);
 
     pathTo('register');
@@ -34,7 +37,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UPDATE A TEACHER ACCOUNTS</title>
+  <title>UPDATE TEACHER ACCOUNTS</title>
 
   <!-- css -->
   <link rel="stylesheet" href="../css/register.css">
@@ -60,19 +63,19 @@
         <a href="#">
           <li>Welcome <?php echo $_SESSION['username'] ?></li>
         </a>
-        <a href="../add-course.php">
+        <a href="add-course.php">
           <li>Course</li>
         </a>
-        <a href="../add-subject.php">
+        <a href="add-subject.php">
           <li>Subject</li>
         </a>
-        <a href="../add-section.php">
+        <a href="add-section.php">
           <li>Section</li>
         </a>
-        <a href="../assign.php">
+        <a href="assign.php">
           <li>Assign a Class</li>
         </a>
-        <a href="../register.php">
+        <a href="register.php">
           <li>Register a Teacher</li>
         </a>
         <form action="logout.php" method="post">
@@ -82,16 +85,18 @@
     </div>
 
     <div class="container">
-      <h1>Update a Teacher Accounts</h1>
+      <h1>Register a Teacher Accounts</h1>
       <form action="register-update.php" method="post">
         <input type="text" name="updateLastName" placeholder="Enter the last name" value="<?php echo $editLastName ?>">
         <input type="text" name="updateFirstName" placeholder="Enter the first name"
           value="<?php echo $editFirstName ?>">
         <input type="text" name="updateEmployeeNo" placeholder="Enter the employee no"
           value="<?php echo $editEmployeeNo ?>">
-        <input type="hidden" name="updateId" placeholder="Enter the employee no" value="<?php echo $editId ?>">
+        <input type="password" name="updatePassword" placeholder="Enter the password"
+          value="<?php echo $editPassword ?>">
 
         <input type="submit" name="update" value="UPDATE">
+        <input type="hidden" name="updateId" value="<?php echo $editId ?>">
       </form>
     </div>
 
