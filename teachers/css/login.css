@@ -7,17 +7,15 @@
 }
 
 :root {
-  --main-color: #1a4e43;
+  --main-color: #f5f5f5;
   --secondary-color: #d79a2a;
   --font: "Roboto", sans-serif;
+  --background: #1a4e43;
   --textbox-color: #edeaea;
 }
 
 .main {
-  background-image: url("../img/sjc-background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--background);
   height: 100vh;
 
   /* layout */
@@ -62,7 +60,7 @@
   padding: 10px;
 }
 .main .container form input:nth-child(3) {
-  background-color: var(--main-color);
+  background-color: var(--background);
   color: white;
   border: none;
   cursor: pointer;

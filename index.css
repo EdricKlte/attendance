@@ -7,9 +7,9 @@ body {
 }
 :root {
   --font: "Roboto", sans-serif;
-  --main-color: #1a4e43;
+  --main-color: #f5f5f5;
   --secondary-color: #d79a2a;
-  --background: #f5f5f5;
+  --background: #1a4e43;
 }
 
 .main {
@@ -59,7 +59,9 @@ body {
   margin-bottom: 0;
   font-weight: 500;
   font-family: var(--font);
+  font-weight: 500;
   font-size: 40px;
+  color: #f5f5f5;
 }
 
 /* container */
@@ -90,5 +92,5 @@ body {
 .main .container a .box {
   height: 53px;
   width: 300px;
-  background-color: var(--main-color);
+  background-color: var(--background);
 }

@@ -56,7 +56,7 @@
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="./img/sjc-bg-black.png" alt="Saint Jude College" />
+      <img src="./img/sjc-bg-color.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 
@@ -74,7 +74,9 @@
         <a href="listofclass.php">
           <li>List of Class</li>
         </a>
-
+        <a href="#">
+          <li>Summary of Attendance</li>
+        </a>
         <a href="change-password.php">
           <li>Change Password</li>
         </a>
@@ -623,21 +625,19 @@ function actions(action) { //OPEN ACTIONS BOX
 function clearSearch() {
   open("attendance-record.php", "_self");
 }
-
-
 </script>
 
 <?php
   if(isset($_GET['ID'])){
     ?>
 <script type="text/javascript">
-  document.getElementById("records").style.display = "none";
-  document.getElementById("container").style.display = "block";
-  document.getElementById("create").style.display = "none";
-  document.getElementById("Records").disabled = false;
-  document.getElementById("Attendance1").disabled = true;
-  document.getElementById("Records").style.backgroundColor = "#1a4e43";
-  document.getElementById("Attendance1").style.backgroundColor = "#d79a2a";
+document.getElementById("records").style.display = "none";
+document.getElementById("container").style.display = "block";
+document.getElementById("create").style.display = "none";
+document.getElementById("Records").disabled = false;
+document.getElementById("Attendance1").disabled = true;
+document.getElementById("Records").style.backgroundColor = "#1a4e43";
+document.getElementById("Attendance1").style.backgroundColor = "#d79a2a";
 </script>
 <?php
 }

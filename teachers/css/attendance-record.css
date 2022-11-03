@@ -11,13 +11,13 @@ body {
 }
 :root {
   --font: "Roboto", sans-serif;
-  --main-color: #1a4e43;
+  --main-color: #f5f5f5;
   --secondary-color: #d79a2a;
-  --background: #f5f5f5;
+  --background: #1a4e43;
 }
 
 .main {
-  background-color: #f5f5f5;
+  background-color: var(--background);
   height: auto;
   padding-bottom: 15px;
 
@@ -44,7 +44,7 @@ td:not(.different) {
   text-align: center;
 }
 th {
-  background-color: var(--main-color);
+  background-color: var(--background);
   font-family: var(--font);
   font-weight: 500;
   color: white;
@@ -91,13 +91,12 @@ td:hover {
   margin: 10px;
   border: none;
   color: white;
-  background-color: var(--main-color);
+  background-color: var(--background);
   font-weight: 500;
 }
 .Button .records {
   background-color: var(--secondary-color);
 }
-
 
 .form-sheets {
   display: flex;
@@ -127,7 +126,7 @@ input[type="number"] {
   height: 30px;
   width: 245px;
   border: none;
-  background-color: var(--main-color);
+  background-color: var(--background);
   color: white;
   font-family: var(--font);
   font-family: 500;
@@ -148,14 +147,14 @@ td a {
   text-decoration: none;
   height: 30px;
   width: 30px;
-  background-color: var(--main-color);
+  background-color: var(--background);
   color: white;
   font-weight: 500;
 }
 
 /* delete in action */
 .DeleteDiv {
-  background-color: var(--main-color);
+  background-color: var(--background);
   position: absolute;
   top: 50%;
   left: 40%;
@@ -210,13 +209,13 @@ td a {
 }
 /* button or archive */
 input[name="openArchive"] {
-  background-color: var(--main-color);
+  background-color: var(--background);
   color: white;
   border: none;
   cursor: pointer;
 }
 input[name="CloseArchive"] {
-  background-color: var(--main-color);
+  background-color: var(--background);
   color: white;
   border: none;
   cursor: pointer;
@@ -230,7 +229,7 @@ input[name="InsertName"] {
   height: 35px;
   width: 100px;
   border: none;
-  background-color: var(--main-color);
+  background-color: var(--background);
   cursor: pointer;
   color: white;
   font-weight: 500;
@@ -240,7 +239,7 @@ input[name="InsertName"] {
   height: 35px;
   width: 100px;
   border: none;
-  background-color: var(--main-color);
+  background-color: var(--background);
   cursor: pointer;
   color: white;
   font-weight: 500;

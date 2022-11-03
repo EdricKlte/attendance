@@ -55,8 +55,7 @@
   <div class="main">
     <!-- header -->
     <div class="header">
-      <img src="../img/sjc_logo.png" alt="Saint Jude College" />
-      <p>PHINMA SAINT JUDE COLLEGE</p>
+      <img src="../img/sjc-bg-color.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 

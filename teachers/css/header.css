@@ -19,6 +19,7 @@
 
   font-size: 30px;
   cursor: pointer;
+  color: black;
 }
 .main .header img {
   grid-column: 2/3;

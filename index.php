@@ -16,11 +16,11 @@
   <div class="main">
     <!-- header -->
     <div class="header">
-      <img src="./admin/img/sjc-bg-black.png" alt="SJC Logo">
+      <img src="./admin/img/sjc-bg-color.png" alt="SJC Logo">
       <div class="header2"></div>
     </div>
 
-    <h1>Attendance Monitoring System</h1>
+    <h1>Attendance Form</h1>
 
     <div class="container">
       <a href="/attendance/admin/login.php">
