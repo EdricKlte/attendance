@@ -11,6 +11,7 @@
     $editLastName = trim($_POST['editLastName']);
     $editFirstName = trim($_POST['editFirstName']);
     $editEmployeeNo = trim($_POST['editEmployeeNo']);
+    $editEmail = trim($_POST['editEmail']);
     $editPassword = trim($_POST['editPassword']);
   }
 
@@ -20,10 +21,11 @@
     $updateLastName = trim($_POST['updateLastName']);
     $updateFirstName = trim($_POST['updateFirstName']);
     $updateEmployeeNo = trim($_POST['updateEmployeeNo']);
+    $updateEmail = trim($_POST['updateEmail']);
     $updatePassword = trim($_POST['updatePassword']);
     $passwordEncrypt = md5($updatePassword);
 
-    $queryUpdate = "UPDATE users SET last_name = '$updateLastName', first_name = '$updateFirstName', employee_no = '$updateEmployeeNo', password = '$passwordEncrypt' WHERE id = '$updateId' ";
+    $queryUpdate = "UPDATE users SET last_name = '$updateLastName', first_name = '$updateFirstName', employee_no = '$updateEmployeeNo', email = '$updateEmail', password = '$passwordEncrypt' WHERE id = '$updateId' ";
     $sqlUpdate = mysqli_query($con, $queryUpdate);
 
     pathTo('register');
@@ -92,6 +94,7 @@
           value="<?php echo $editFirstName ?>">
         <input type="text" name="updateEmployeeNo" placeholder="Enter the employee no"
           value="<?php echo $editEmployeeNo ?>">
+        <input type="text" name="updateEmail" placeholder="Enter the email" value="<?php echo $editEmail ?>">
         <input type="password" name="updatePassword" placeholder="Enter the password"
           value="<?php echo $editPassword ?>">
 

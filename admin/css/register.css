@@ -49,7 +49,7 @@ body {
   height: 30px;
   width: 440px;
 }
-.main .container form input:nth-child(5) {
+.main .container form input:nth-child(6) {
   background-color: var(--main-color);
   border: none;
   font-family: var(--font);

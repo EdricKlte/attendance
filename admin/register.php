@@ -69,6 +69,7 @@
         <input type="text" name="lastName" placeholder="Enter the last name">
         <input type="text" name="firstName" placeholder="Enter the first name">
         <input type="text" name="employeeNo" placeholder="Enter the employee no">
+        <input type="email" name="email" placeholder="Enter the email">
         <input type="password" name="password" placeholder="Enter the password">
 
         <input type="submit" name="register" value="REGISTER">
@@ -81,6 +82,7 @@
           <th>Last Name</th>
           <th>First Name</th>
           <th>Employee No</th>
+          <th>Email</th>
           <th>Password</th>
           <th colspan="2">Action</th>
         </tr>
@@ -90,6 +92,7 @@
           <td><?php echo $r['last_name'] ?></td>
           <td><?php echo $r['first_name'] ?></td>
           <td><?php echo $r['employee_no'] ?></td>
+          <td><?php echo $r['email'] ?></td>
           <td><?php echo $r['password'] ?></td>
           <td>
             <form action="./php/register-update.php" method="post">
@@ -98,6 +101,7 @@
               <input type="hidden" name="editLastName" value="<?php echo $r['last_name'] ?>">
               <input type="hidden" name="editFirstName" value="<?php echo $r['first_name'] ?>">
               <input type="hidden" name="editEmployeeNo" value="<?php echo $r['employee_no'] ?>">
+              <input type="hidden" name="editEmail" value="<?php echo $r['email'] ?>">
               <input type="hidden" name="editPassword" value="<?php echo $r['password'] ?>">
             </form>
           </td>
