@@ -69,7 +69,7 @@
         <tr>
           <th>Subjects</th>
           <th>Sections</th>
-          <th></th>
+          <th>Actions</th>
         </tr>
         <?php while($results = mysqli_fetch_array($sql)) { ?>
         <tr>
@@ -80,6 +80,10 @@
               <button type="submit" class="open-class" id="OpenClass" name="OpenClass" value="<?php 
                 echo $results['subjects']."+".$results['sections'];
                 ?>">Open Class
+              </button>
+              <button type="submit" class="open-class" id="OpenSummary" name="OpenSummary" value="<?php 
+                echo $results['subjects']."+".$results['sections'];
+                ?>">Summary
               </button>
             </form>
           </td>
@@ -99,7 +103,6 @@
 if(ISSET($_GET['OpenClass'])){
   $Value = $_GET['OpenClass'];
   $Value = explode("+",$Value);
-
   $subjects = $Value[0];
   $sections = $Value[1];
 
@@ -109,6 +112,19 @@ if(ISSET($_GET['OpenClass'])){
   pathTo('attendance-record');
   header('Location: attendance-record.php');
 
+}
+else if(ISSET($_GET['OpenSummary'])){
+
+  $Value = $_GET['OpenSummary'];
+  $Value = explode("+",$Value);
+  $subjects = $Value[0];
+  $sections = $Value[1];
+
+  $_SESSION['archive']="no";
+  $_SESSION['subjects']=$subjects;
+  $_SESSION['sections']=$sections;
+  pathTo('summary-of-attendance');
+  header('Location: summary-of-attendance.php');
 }
 
 ?>

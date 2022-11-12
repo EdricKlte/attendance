@@ -119,8 +119,6 @@
           }
 
           ?>
-          <th>P</th>
-          <th>A</th>
         </tr>
 
         <center>
@@ -134,7 +132,7 @@
           <button type="submit" class="search-surname">Search</button>
           <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
-
+        
         <?php 
         $count = 0; 
 
@@ -148,6 +146,7 @@
           $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects' order by last_name ";
         }
         $sqlClassList = mysqli_query($con, $queryClassList);
+
         while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
           $studentID = $classListResult['students_id'];
           $studentFn = $classListResult['first_name'];
@@ -159,8 +158,7 @@
           echo "<td>".$studentLn. ', ' .$studentFn."</td>"; 
           
           //$select = "SELECT * FROM attendance WHERE students_id LIKE '$studentID%'";
-          $totalPresent = 0;
-          $totalAbsent = 0;
+
           for($a=1;$a<=$daysCount;$a++){
             $select = "SELECT * FROM attendance WHERE sections = '$section1' AND subjects='$subject1' AND students_id = '$studentID' AND day = $a AND month = $month AND sheetID = $sheetID  ";
             $sqlselect = mysqli_query($con, $select);
@@ -170,7 +168,6 @@
               if($classListResult['students_id']==$row['students_id']){//if1
                 if($row['Status']==1 && $row['day']==$a ){//if2
                   $InputID = $studentID ."_". $row['id'] ."_". $sheetID;
-                  $totalPresent = $totalPresent +1;
                   echo"<td><form method=GET>";
                   
                   echo "<input type=button onclick=AttendStatus(this.id,this.name,this.value) name=".$row['id']." id=".$InputID."  style=font-weight:bold;color:white;background-color:#38E54D;height:25px;width:25px;border:none; value='P'  >";
@@ -178,7 +175,6 @@
                 }//if2
                 elseif($row['Status']==0 && $row['day']==$a){//elseif1
                   $InputID = $studentID . $row['id'] ."_". $sheetID;
-                  $totalAbsent = $totalAbsent + 1;
                   echo "<td><form method=GET>";
 
                   echo"<input type=button onclick=AttendStatus(this.id,this.name,this.value) id=".$InputID." name=" .$row['id']." value='A' style=font-weight:bold;color:white;background-color:#D2001A;height:25px;width:25px;border:none; />"; 
@@ -200,14 +196,6 @@
 
           }//FOR LOOP
 
-          //$IdArray =(explode("_",$InputID));
-
-          echo "<td id=present>";
-          echo $totalPresent."</td>";
-          echo "<td absent>";  
-          echo $totalAbsent."</td></tr>";
-
-          //echo "<td>present".$IdArray[0]."</td>";
 
         }//WHILE
         if($count == 0){//check if is more than 1

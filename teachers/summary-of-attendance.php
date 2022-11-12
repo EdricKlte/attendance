@@ -4,9 +4,17 @@
   // session
   require './php/session.php';
 
-  $id = $_SESSION['id'];
-  $query = "SELECT * FROM assign WHERE teachers = '$id' ";
+
+  $usersId = $_SESSION['id']; 
+  $query = "SELECT * FROM assign WHERE teachers = '$usersId' ";
   $sql = mysqli_query($con, $query);
+
+
+  $teacher = $_SESSION['name'];
+  $sections = $_SESSION['sections'];
+  $subjects = $_SESSION['subjects'];
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -50,9 +58,6 @@
         <a href="listofclass.php">
           <li>List of Class</li>
         </a>
-        <a href="summary-of-attendance.php">
-          <li>Summary of Attendance</li>
-        </a>
         <a href="change-password.php">
           <li>Change Password</li>
         </a>
@@ -67,20 +72,21 @@
 
       <table>
         <tr>
-          <th>List of Subjects</th>
-          <th>Action</th>
+          <th>Months</th>
+          <th>Open</th>
         </tr>
+        <?php 
+          $querySheetRecord1 = "SELECT * FROM sheet_record WHERE users_id='$usersId' AND sections='$sections' AND subjects = '$subjects' AND archive ='no' ";
+          $sqlSheetRecord1 = mysqli_query($con, $querySheetRecord1);
+          while($sheetRecord1 = mysqli_fetch_array($sqlSheetRecord1)){
+                      
+              echo "</td><td>".$sheetRecord1['year'];
+              echo "</td><td><a  href=attendance-summary.php?ID=".$sheetRecord1['id'].">OPEN</a> ";
+              echo "</td></tr>";
+          
+            }
+        ?>
 
-        <?php while($r = mysqli_fetch_array($sql)) { ?>
-        <tr>
-          <td><?php echo $r['subjects'] ?></td>
-          <td>
-            <div class="open-container">
-              <a href="#">OPEN</a>
-            </div>
-          </td>
-        </tr>
-        <?php } ?>
       </table>
     </div>
 
