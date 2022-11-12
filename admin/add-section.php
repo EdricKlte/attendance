@@ -28,7 +28,7 @@
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="./img/sjc-bg-black.png" alt="Saint Jude College" />
+      <img src="./img/sjc-bg-color.png" alt="Saint Jude College" />
       <div class="header2"></div>
     </div>
 

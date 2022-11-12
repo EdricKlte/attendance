@@ -11,15 +11,13 @@ body {
   --font: "Roboto", sans-serif;
   --main-color: #1a4e43;
   --secondary-color: #d79a2a;
+  --header-color: white;
   --textbox-color: #edeaea;
 }
 
 .main {
-  background-image: url("../img/sjc-background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
+  background-color: var(--main-color);
 
   /* layout */
   display: grid;
