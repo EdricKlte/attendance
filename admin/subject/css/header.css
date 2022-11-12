@@ -3,7 +3,7 @@
 
   width: 100vw;
   height: 120px;
-  background-color: var(--main-color);
+  background-color: var(--header-color);
   position: fixed;
   color: white;
   z-index: 1;
@@ -19,6 +19,7 @@
 
   font-size: 30px;
   cursor: pointer;
+  color: black;
 }
 .main .header img {
   grid-column: 2/3;
