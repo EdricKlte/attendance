@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("header.css");
+@import url("sidebar.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  background-color: var(--background);
+}
+:root {
+  --font: "Roboto", sans-serif;
+  --main-color: #f5f5f5;
+  --secondary-color: #d79a2a;
+  --background: #1a4e43;
+}
+
+.main {
+  background-color: var(--background);
+  height: auto;
+  padding-bottom: 15px;
+
+  /* layout */
+  display: grid;
+  grid-template-rows: 130px 1fr;
+  justify-items: center;
+  row-gap: 20px;
+}
+
+/* container */
+.main .table-container {
+  grid-row: 2/3;
+  background-color: white;
+  height: 500px;
+  width: 1000px;
+  padding: 10px;
+}
+.main .table-container h1 {
+  text-align: center;
+  margin: 10px 0 10px 0;
+  font-family: var(--font);
+  font-weight: 500;
+}
+
+/* table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td {
+  position: relative;
+}
+table,
+td,
+tr,
+th {
+  text-align: center;
+  padding: 15px;
+}
+th {
+  font-weight: 500;
+  font-family: var(--font);
+  background-color: var(--background);
+  color: white;
+}
+tr {
+  font-family: var(--font);
+  font-weight: 400;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* open button */
+.open-container {
+  background-color: var(--background);
+  height: 30px;
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 125px;
+  top: 10px;
+}
+a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  line-height: 30px;
+}

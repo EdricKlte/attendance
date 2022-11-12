@@ -64,7 +64,8 @@
   color: white;
   border: none;
   cursor: pointer;
-
+  font-family: var(--font);
+  font-weight: 500;
   height: 36px;
   width: 320px;
 }
