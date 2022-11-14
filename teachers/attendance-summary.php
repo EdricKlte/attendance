@@ -122,10 +122,12 @@
           echo "<td>".$absent."</td></tr>";
 
         }//WHILE
-        
+         
         ?>
       </table>
-
+      <form action="exportExcel.php?ID=<?php echo $sheetID ?>" method="post">
+        <button type="submit" value="export">Download Excel</button>
+      </format>
     </div>
   </div>
 </body>

@@ -80,7 +80,7 @@
           $sqlSheetRecord1 = mysqli_query($con, $querySheetRecord1);
           while($sheetRecord1 = mysqli_fetch_array($sqlSheetRecord1)){
                       
-              echo "</td><td>".$sheetRecord1['year'];
+              echo "</td><td>".$sheetRecord1['month'];
               echo "</td><td><a  href=attendance-summary.php?ID=".$sheetRecord1['id'].">OPEN</a> ";
               echo "</td></tr>";
           
