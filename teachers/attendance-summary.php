@@ -92,8 +92,6 @@
         <?php
         $queryClassList = "SELECT * FROM class_list WHERE users_id = '$usersId' AND section = '$sections' AND subject = '$subjects' order by last_name ";
         $sqlClassList = mysqli_query($con, $queryClassList);
-        $TotalAbsent = 0;
-        $TotalPresent = 0;
         while($classListResult = mysqli_fetch_array($sqlClassList)) {//WHILE
           $studentID = $classListResult['students_id'];
           $studentFn = $classListResult['first_name'];
@@ -110,12 +108,10 @@
               if($classListResult['students_id']==$row['students_id']){
                 if($row['Status']==1 && $row['day']==$a ){
                   $present = $present + 1;
-                  $TotalPresent = $TotalPresent + 1;
                   
                 }
                 else if($row['Status']==0 && $row['day']==$a){
                   $absent = $absent +1;
-                  $TotalAbsent = $TotalAbsent +1;
 
                 }
               }
@@ -126,7 +122,7 @@
           echo "<td>".$absent."</td></tr>";
 
         }//WHILE
-        echo "<tr><td>Total</td><td>".$TotalPresent."</td><td>".$TotalAbsent."</td></tr>";
+        
         ?>
       </table>
 
