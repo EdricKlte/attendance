@@ -55,9 +55,6 @@
           <a href="listofclass.php">
             <li>List of Class</li>
           </a>
-          <a href="summary-of-attendance.php">
-            <li>Summary of Attendance</li>
-          </a>
           <a href="change-password.php">
             <li>Change Password</li>
           </a>
