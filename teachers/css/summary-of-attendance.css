@@ -90,3 +90,14 @@ a {
   line-height: 30px;
   background-color: var(--background);
 }
+/* button */
+button[type="submit"] {
+  height: 30px;
+  width: 140px;
+  background-color: var(--background);
+  border: none;
+  color: white;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+}
