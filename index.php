@@ -14,15 +14,17 @@
 
 <body>
   <div class="main">
+    <img src="./admin/img/sjc-bg.jpg" alt="sjc" class="bg">
     <!-- header -->
     <div class="header">
+      <img src="./admin/img/phinmaed-logo.png" alt="PHINMA Logo">
       <img src="./admin/img/sjc-bg-color.png" alt="SJC Logo">
       <div class="header2"></div>
     </div>
 
-    <h1>Attendance Form</h1>
-
     <div class="container">
+      <h1>Attendance Form</h1>
+
       <a href="/attendance/admin/login.php">
         <div class="box">Admin</div>
       </a>
