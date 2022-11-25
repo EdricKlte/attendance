@@ -112,7 +112,8 @@
         <select name="updateTeachers" id="teachers" value="<?php echo $editTeachers ?>" required>
           <option disabled selected value>--Assign a Teachers--</option>
           <?php while($resultsTeachers = mysqli_fetch_array($sqlTeachers)) { ?>
-          <option value="<?php echo $resultsTeachers['id'] ?>"><?php echo $resultsTeachers['fullname'] ?>
+          <option value="<?php echo $resultsTeachers['id'] ?>">
+            <?php echo $resultsTeachers['last_name']. ", " . $resultsTeachers['first_name'] ?>
           </option>
           <?php } ?>
         </select>

@@ -2,15 +2,9 @@
   require('./php/session.php');
   require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
-  $querySubject = "SELECT * FROM add_subject";
-  $sqlSubject = mysqli_query($con, $querySubject);
-  
-  $querySection = "SELECT * FROM add_section";
-  $sqlSection = mysqli_query($con, $querySection);
-
   $id = $_SESSION['id'];
-  $queryAttendanceSheet = "SELECT * FROM class_list WHERE users_id = '$id'";
-  $sqlAttendanceSheet = mysqli_query($con, $queryAttendanceSheet);
+  $query = "SELECT * FROM class_list WHERE users_id = '$id'";
+  $sql = mysqli_query($con, $query);
 
 ?>
 
@@ -49,7 +43,7 @@
           <a href="#">
             <li>Welcome: <?php echo $_SESSION['name'] ?></li>
           </a>
-          <a href="class-list.php">
+          <a href="class-list-page.php">
             <li>Class List</li>
           </a>
           <a href="listofclass.php">
@@ -67,107 +61,78 @@
       <!-- container input -->
       <div class="container">
         <h1>Add students to your class</h1>
-        <form action="./php/classList-create.php" method="post">
 
-          <!-- student number -->
-          <input type="text" name="studentNumber" placeholder="Enter student number">
-
-          <!-- name -->
-          <input type="text" name="lastName" placeholder="Enter last name">
-          <input type="text" name="firstName" placeholder="Enter first name">
-
-          <!-- course -->
-          <select name="course" id="s1">
-            <option disabled selected value>--Course--</option>
-            <option value="BS Criminology">BS Criminology</option>
-            <option value="BS Accountancy">BS Accountancy</option>
-            <option value="BS Nursing">BS Nursing</option>
-            <option value="BS Respiratory Theraphy">BS Respiratory Theraphy</option>
-            <option value="BS Medical Technology">BS Medical Technology</option>
-            <option value="BS Information Technology">BS Information Technology</option>
-            <option value="BS Radiologic Technology">BS Radiologic Technology</option>
-            <option value="BS Physical Theraphy">BS Physical Theraphy</option>
-            <option value="BS Psychology">BS Psychology</option>
-            <option value="BS Pharmacy">BS Pharmacy</option>
-            <option value="BS Hospitality Management">BS Hospitality Management</option>
-            <option value="BS Tourism Management">BS Tourism Management</option>
-            <option value="BS Business Administration Major in Financial Management">BS Business Administration Major in
-              Financial Management</option>
-            <option value="BS Business Administration Major in Marketing Management">BS Business Administration Major in
-              Marketing Management</option>
-            <option value="Bachelor of Elementary Education">Bachelor of Elementary Education</option>
-            <option value="Bachelor of Secondary Education Major in English">Bachelor of Secondary Education Major in
-              English</option>
-            <option value="Bachelor of Secondary Education Major in Filipino">Bachelor of Secondary Education Major in
-              Filipino</option>
-          </select>
-
-          <!-- section -->
-          <select name="section" id="s2">
-            <option disabled selected value>--Select a section--</option>
-            <?php while($results = mysqli_fetch_array($sqlSection)) { ?>
-            <option value="<?php echo $results['section'] ?>"><?php echo $results['section'] ?></option>
-            <?php } ?>
-          </select>
-
-          <!-- subject -->
-          <select name="subject" id="s3">
-            <option disabled selected value>--Subject--</option>
-            <?php while($resultSubjects = mysqli_fetch_array($sqlSubject)) { ?>
-            <option value="<?php echo $resultSubjects['subject_name'] ?>"><?php echo $resultSubjects['subject_name'] ?>
-            </option>
-            <?php } ?>
-          </select>
-
-          <input type="submit" name="create" value="ADD">
-
+        <!-- import link -->
+        <form action="./php/import-classlist.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="file">
+          <input type="submit" name="import" value="IMPORT">
         </form>
+
       </div>
 
-      <!-- students table -->
+      <!-- student list -->
       <div class="students-list">
         <table>
-          <tr>
-            <th>Students Number</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Course</th>
-            <th>Section</th>
-            <th>Subject</th>
-            <th colspan="2">Action</th>
-          </tr>
-          <?php while($resultsAttendance = mysqli_fetch_array($sqlAttendanceSheet)) { ?>
+          <thead>
+            <tr>
+              <th>Student No:</th>
+              <th>Last Name:</th>
+              <th>First Name:</th>
+              <th>Course:</th>
+              <th>Section:</th>
+              <th>Subject:</th>
+              <th colspan="2">Action</th>
+            </tr>
+          </thead>
 
-          <tr>
-            <td><?php echo $resultsAttendance['students_id']?></td>
-            <td><?php echo $resultsAttendance['last_name'] ?></td>
-            <td><?php echo $resultsAttendance['first_name'] ?></td>
-            <td><?php echo $resultsAttendance['course'] ?></td>
-            <td><?php echo $resultsAttendance['section'] ?></td>
-            <td><?php echo $resultsAttendance['subject'] ?></td>
-            <td>
-              <form action="./php/classList-update.php" method="post">
-                <input type="submit" name="edit" class="edit" value="EDIT">
-                <input type="hidden" name="editId" value="<?php echo $resultsAttendance['id'] ?>">
-                <input type="hidden" name="editStudentsId" value="<?php echo $resultsAttendance['students_id'] ?>">
-                <input type="hidden" name="editLastName" value="<?php echo $resultsAttendance['last_name'] ?>">
-                <input type="hidden" name="editFirstName" value="<?php echo $resultsAttendance['first_name'] ?>">
-                <input type="hidden" name="editCourse" value="<?php echo $resultsAttendance['course'] ?>">
-                <input type="hidden" name="editSection" value="<?php echo $resultsAttendance['section'] ?>">
-                <input type="hidden" name="editSubject" value="<?php echo $resultsAttendance['subject'] ?>">
-              </form>
-            </td>
-            <td>
-              <form action="./php/classList-delete.php" method="post">
-                <input type="submit" name="delete" class="delete" value="DELETE">
-                <input type="hidden" name="deleteId" value="<?php echo $resultsAttendance['id'] ?>">
-              </form>
-            </td>
-          </tr>
-          <?php } ?>
+          <tbody>
+            <?php 
+              $result = $con->query("SELECT * FROM class_list");
+
+              if ($result->num_rows > 0) {
+                while($row = $result->fetch_array()){
+                  ?>
+            <tr>
+              <td><?php echo $row['students_id'] ?></td>
+              <td><?php echo $row['last_name'] ?></td>
+              <td><?php echo $row['first_name'] ?></td>
+              <td><?php echo $row['course'] ?></td>
+              <td><?php echo $row['section'] ?></td>
+              <td><?php echo $row['subject'] ?></td>
+              <td>
+                <form action="./php/classList-update.php" method="post">
+                  <input type="submit" value="EDIT" name="edit" class="edit">
+                  <input type="hidden" name="editId" value="<?php echo $row['id'] ?>">
+                  <input type="hidden" name="editStudentId" value="<?php echo $row['students_id'] ?>">
+                  <input type="hidden" name="editLastName" value="<?php echo $row['last_name'] ?>">
+                  <input type="hidden" name="editFirstName" value="<?php echo $row['first_name'] ?>">
+                  <input type="hidden" name="editCourse" value="<?php echo $row['course'] ?>">
+                  <input type="hidden" name="editSection" value="<?php echo $row['section'] ?>">
+                  <input type="hidden" name="editSubject" value="<?php echo $row['subject'] ?>">
+                </form>
+              </td>
+              <td>
+                <form action="./php/classList-delete.php" method="post">
+                  <input type="submit" value="DELETE" name="delete" class="delete">
+                  <input type="hidden" name="deleteId" value="<?php echo $row['id'] ?>">
+                </form>
+              </td>
+            </tr>
+            <?php
+                }
+              } else {
+                ?>
+            <tr>
+              <td colspan="6">No Class List Found...</td>
+            </tr>
+            <?php
+              }
+            ?>
+          </tbody>
+
         </table>
-
       </div>
+
     </div>
   </body>
 

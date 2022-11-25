@@ -62,7 +62,7 @@
         <a href="#">
           <li>Welcome: <?php echo $_SESSION['name'] ?></li>
         </a>
-        <a href="class-list.php">
+        <a href="class-list-page.php">
           <li>Class List</li>
         </a>
         <a href="listofclass.php">

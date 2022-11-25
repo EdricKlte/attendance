@@ -19,7 +19,7 @@
     $course = $_POST['editCourse'];
     $section = $_POST['editSection'];
     $subject = $_POST['editSubject'];
-    $studentId = $_POST['editStudentsId'];
+    $studentId = $_POST['editStudentId'];
   }
 
   if (isset($_POST['update'])) {
@@ -49,7 +49,7 @@
   <title>UPDATE CLASS LIST</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="../css/class-list.css" />
+  <link rel="stylesheet" href="../css/classlist-update.css">
 
   <!-- script -->
   <script src="https://kit.fontawesome.com/8cbc2e0f0e.js" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
   <div class="main">
     <div class="header">
       <i class="fa-solid fa-bars" id="bars"></i>
-      <img src="../img/sjc_logo.png" alt="Saint Jude College" />
+      <img src="../img/sjc-bg-color.png" alt="Saint Jude College" />
       <p>PHINMA SAINT JUDE COLLEGE</p>
       <div class="header2"></div>
     </div>
@@ -74,16 +74,13 @@
         <a href="#">
           <li>Welcome: <?php echo $_SESSION['name'] ?></li>
         </a>
-        <a href="class-list.php">
+        <a href="../class-list.php">
           <li>Class List</li>
         </a>
-        <a href="listofclass.php">
+        <a href="../listofclass.php">
           <li>List of Class</li>
         </a>
-        <a href="attendance-record.php">
-          <li>Attendance Records</li>
-        </a>
-        <a href="change-password.php">
+        <a href="../change-password.php">
           <li>Change Password</li>
         </a>
         <form action="./php/logout.php" method="post">

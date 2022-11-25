@@ -68,14 +68,11 @@
         <a href="#">
           <li>Welcome: <?php echo $_SESSION['name'] ?></li>
         </a>
-        <a href="class-list.php">
+        <a href="class-list-page.php">
           <li>Class List</li>
         </a>
         <a href="listofclass.php">
           <li>List of Class</li>
-        </a>
-        <a href="summary-of-attendance.php">
-          <li>Summary of Attendance</li>
         </a>
         <a href="change-password.php">
           <li>Change Password</li>
@@ -132,7 +129,7 @@
           <button type="submit" class="search-surname">Search</button>
           <button class="clear-search" onclick="clearSearch()">Clear Search</button>
         </form>
-        
+
         <?php 
         $count = 0; 
 

@@ -9,10 +9,11 @@
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
     $employeeNo = $_POST['employeeNo'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $passwordEncrypt = md5($password);
 
-    $queryRegister = "INSERT INTO users VALUES (null, '$lastName', '$firstName', '$employeeNo','$passwordEncrypt')";
+    $queryRegister = "INSERT INTO users VALUES (null, '$lastName', '$firstName', '$employeeNo', '$email' ,'$passwordEncrypt')";
     $sqlRegister = mysqli_query($con, $queryRegister);
 
     pathTo('register');
