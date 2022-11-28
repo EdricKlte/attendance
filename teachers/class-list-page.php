@@ -73,8 +73,12 @@
           <td><?php echo $results['subjects'] ?></td>
           <td><?php echo $results['sections'] ?></td>
           <td>
-            <form action="class-list.php" method="post">
-              <input type="submit" value="OPEN CLASS LIST" class="class-list-btn">
+            <form action="class-list-page.php" method="get">
+              <button type="submit" class="class-list-btn" id="OpenClass" name="OpenClass" value="<?php 
+                echo $results['subjects']."+".$results['sections'];
+                ?>">OPEN CLASS LIST
+              </button>
+              
             </form>
           </td>
         </tr>
@@ -86,3 +90,22 @@
 </body>
 
 </html>
+
+<?php 
+
+
+if(ISSET($_GET['OpenClass'])){
+  $Value = $_GET['OpenClass'];
+  $Value = explode("+",$Value);
+  $subjects = $Value[0];
+  $sections = $Value[1];
+
+
+  $_SESSION['subjects']=$subjects;
+  $_SESSION['sections']=$sections;
+  pathTo('attendance-record');
+  header('Location: class-list.php');
+
+}
+
+?>

@@ -3,7 +3,9 @@
   require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
   $id = $_SESSION['id'];
-  $query = "SELECT * FROM class_list WHERE users_id = '$id'";
+  $subjects = $_SESSION['subjects'];
+  $sections = $_SESSION['sections'];
+  $query = "SELECT * FROM class_list WHERE users_id = '$id' AND subjects = '$subjects' AND sections = '$sections'";
   $sql = mysqli_query($con, $query);
 
 ?>
@@ -87,7 +89,7 @@
 
           <tbody>
             <?php 
-              $result = $con->query("SELECT * FROM class_list");
+              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subject = '$subjects' AND section = '$sections'");
 
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()){
