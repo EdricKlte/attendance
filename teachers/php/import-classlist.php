@@ -3,7 +3,7 @@
   require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
   session_start();
-
+  $usersId = $_SESSION['id']; 
   if (isset($_POST['import'])) {
     // allowed mime types
     $csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
@@ -34,10 +34,10 @@
 
           if ($prevResult->num_rows > 0) {
             // update member data in the database
-            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."' WHERE students_id = '".$students_id."' ");
+            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."' WHERE students_id = '".$students_id."' ");
           } else {
             // insert class list in the database
-            $con->query("INSERT INTO class_list (students_id, last_name, first_name, course, section, subject) VALUES ('".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."' ) ");
+            $con->query("INSERT INTO class_list (students_id, last_name, first_name, course, section, subject, users_id) VALUES ('".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."' ) ");
           }
         }
 
