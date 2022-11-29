@@ -103,7 +103,7 @@ if(ISSET($_GET['OpenClass'])){
 
   $_SESSION['subjects']=$subjects;
   $_SESSION['sections']=$sections;
-  pathTo('attendance-record');
+  pathTo(' class-list');
   header('Location: class-list.php');
 
 }
