@@ -83,7 +83,7 @@
               <th>Course:</th>
               <th>Section:</th>
               <th>Subject:</th>
-              <th colspan="2">Action</th>
+              <th>Action</th>
             </tr>
           </thead>
 
@@ -111,12 +111,6 @@
                   <input type="hidden" name="editCourse" value="<?php echo $row['course'] ?>">
                   <input type="hidden" name="editSection" value="<?php echo $row['section'] ?>">
                   <input type="hidden" name="editSubject" value="<?php echo $row['subject'] ?>">
-                </form>
-              </td>
-              <td>
-                <form action="./php/classList-delete.php" method="post">
-                  <input type="submit" value="DELETE" name="delete" class="delete">
-                  <input type="hidden" name="deleteId" value="<?php echo $row['id'] ?>">
                 </form>
               </td>
             </tr>
