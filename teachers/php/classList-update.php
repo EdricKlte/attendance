@@ -8,8 +8,9 @@
   $querySection = "SELECT * FROM add_section";
   $sqlSection = mysqli_query($con, $querySection);
   $year = date("Y");
-  $month = date('m');
-  $dateModified = $month ."/". $year;
+  $day = date("d");
+  $month = date("m");
+  $dateModified = $month ."/".$day."/". $year;
   function path($destination) {
     echo "<script>window.location.href = '/attendance/teachers/$destination.php'</script>";
   }

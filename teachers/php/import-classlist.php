@@ -5,8 +5,9 @@
   session_start();
   $usersId = $_SESSION['id']; 
   $year = date("Y");
+  $day = date("d");
   $month = date("m");
-  $dateModified = $month."/".$year;
+  $dateModified = $month."/".$day."/".$year;
   //$section = $_SESSION['sections'];
   //$subject = $_SESSION['subjects'];
   if (isset($_POST['import'])) {
