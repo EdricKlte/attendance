@@ -79,8 +79,49 @@
           $querySheetRecord1 = "SELECT * FROM sheet_record WHERE users_id='$usersId' AND sections='$sections' AND subjects = '$subjects' AND archive ='no' ";
           $sqlSheetRecord1 = mysqli_query($con, $querySheetRecord1);
           while($sheetRecord1 = mysqli_fetch_array($sqlSheetRecord1)){
-                      
-              echo "</td><td>".$sheetRecord1['month'];
+              $MONTH = $sheetRecord1['month'];
+              /*$month;
+              switch ($MONTH){
+                case 1 : 
+                $month = "January";
+                break;
+                case 2 : 
+                $month = "February";
+                break;
+                case 3 : 
+                $month = "March";
+                break;
+                case 4 : 
+                $month = "April";
+                break;
+                case 5 : 
+                $month = "May";
+                break;
+                case 6 : 
+                $month = "June";
+                break;
+                case 7 : 
+                $month = "July";
+                break;
+                case 8 : 
+                $month = "August";
+                break;
+                case 9 : 
+                $month = "September";
+                break;
+                case 10 : 
+                $month = "October";
+                break;
+                case 11 : 
+                $month = "November";
+                break;
+                case 12 : 
+                $month = "December";
+                break;
+                default:
+                $month = "erroR";
+              }*/ 
+              echo "</td><td>"/*.$month.*/.$sheetRecord1['month'];
               echo "</td><td><a  href=attendance-summary.php?ID=".$sheetRecord1['id'].">OPEN</a> ";
               echo "</td></tr>";
           

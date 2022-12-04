@@ -4,8 +4,11 @@
 
   session_start();
   $usersId = $_SESSION['id']; 
-  $section = $_SESSION['sections'];
-  $subject = $_SESSION['subjects'];
+  $year = date("Y");
+  $month = date("m");
+  $dateModified = $month."/".$year;
+  //$section = $_SESSION['sections'];
+  //$subject = $_SESSION['subjects'];
   if (isset($_POST['import'])) {
     // allowed mime types
     $csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
@@ -28,18 +31,18 @@
           $last_name = $line[1];
           $first_name = $line[2];
           $course = $line[3];
-          
-          
+          $section = $line[4];
+          $subject = $line[5];
           // check whether students is already assigned in section/subject in the database with the same student no.
           $prevQuery = "SELECT * FROM class_list WHERE students_id = '$line[0]' AND section = '$section' AND subject = '$subject' ";
           $prevResult = $con->query($prevQuery);
 
           if ($prevResult->num_rows > 0) {
             // update member data in the database
-            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."' WHERE students_id = '".$students_id."' ");
+            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."', dateModified = '".$dateModified."' WHERE students_id = '".$students_id."' ");
           } else {
             // insert class list in the database
-            $con->query("INSERT INTO class_list (students_id, last_name, first_name, course, section, subject, users_id) VALUES ('".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."' ) ");
+            $con->query("INSERT INTO class_list (students_id, last_name, first_name, course, section, subject, users_id, dateModified) VALUES ('".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."','".$dateModified."' ) ");
           }
         }
 

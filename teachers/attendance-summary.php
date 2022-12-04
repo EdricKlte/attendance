@@ -85,6 +85,7 @@
 
       <table>
         <tr>
+          <th>Student No.</th>
           <th>Student</th>
           <th>Present</th>
           <th>Absent</th>
@@ -96,9 +97,11 @@
           $studentID = $classListResult['students_id'];
           $studentFn = $classListResult['first_name'];
           $studentLn = $classListResult['last_name'];
+          $studentNumber = $classListResult['students_id'];
           $section1 = $classListResult['section'];
           $subject1 = $classListResult['subject'];    
-          echo "<tr><td>".$studentLn. ', ' .$studentFn."</td>";
+          echo "<tr><td>".$studentNumber."</td>";
+          echo "<td>".$studentLn. ', ' .$studentFn."</td>";
           $present = 0;
           $absent = 0;
           for($a=1;$a<=$daysCount;$a++){

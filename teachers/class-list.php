@@ -83,6 +83,7 @@
               <th>Course:</th>
               <th>Section:</th>
               <th>Subject:</th>
+              <th>Date Modified:</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -101,6 +102,7 @@
               <td><?php echo $row['course'] ?></td>
               <td><?php echo $row['section'] ?></td>
               <td><?php echo $row['subject'] ?></td>
+              <td><?php echo $row['dateModified']?></td>
               <td>
                 <form action="./php/classList-update.php" method="post">
                   <input type="submit" value="EDIT" name="edit" class="edit">

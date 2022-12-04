@@ -7,7 +7,9 @@
 
   $querySection = "SELECT * FROM add_section";
   $sqlSection = mysqli_query($con, $querySection);
-
+  $year = date("Y");
+  $month = date('m');
+  $dateModified = $month ."/". $year;
   function path($destination) {
     echo "<script>window.location.href = '/attendance/teachers/$destination.php'</script>";
   }
@@ -31,10 +33,15 @@
     $updateSubject = $_POST['updateSubject'];
     $updateStudentId = $_POST['updateStudentId'];
 
-    $queryUpdate = "UPDATE class_list SET last_name = '$updateLastName', first_name = '$updateFirstName', course = '$updateCourse', section = '$updateSection', subject = '$updateSubject', students_id = '$updateStudentId' WHERE id = '$updateId' ";
-    $sqlUpdate = mysqli_query($con, $queryUpdate);
-
-    path('class-list');
+    $queryUpdate = "UPDATE class_list SET last_name = '$updateLastName', first_name = '$updateFirstName', course = '$updateCourse', section = '$updateSection', subject = '$updateSubject', students_id = '$updateStudentId',  dateModified = '$dateModified' WHERE id = '$updateId' ";
+    //$sqlUpdate = 
+    if(mysqli_query($con, $queryUpdate)){
+      path('class-list');  
+    }
+    else{
+      echo $dateModified;
+    }
+    
   }
 
 ?>

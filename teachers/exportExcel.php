@@ -19,7 +19,7 @@ function filterData(&$str){
 
 
 
-$fields = array('Student','Present','Absent');
+$fields = array('Student No.','Student','Present','Absent');
 
 $excelData = implode("\t", array_values($fields)) . "\n";
 
@@ -56,6 +56,7 @@ while($classListResult = mysqli_fetch_array($sqlClassList)) {
 	$studentID = $classListResult['students_id'];
     $studentFn = $classListResult['first_name'];
     $studentLn = $classListResult['last_name'];
+    $studentNumber = $classListResult['students_id'];
     $section1 = $classListResult['section'];
     $subject1 = $classListResult['subject']; 
     
@@ -80,7 +81,7 @@ while($classListResult = mysqli_fetch_array($sqlClassList)) {
     }
 
     
-    $lineData = array($studentLn." ".$studentFn,$present,$absent);
+    $lineData = array($studentNumber,$studentLn." ".$studentFn,$present,$absent);
     array_walk($lineData, 'filterData');
     $excelData .= implode("\t", array_values($lineData))."\n";
 }
