@@ -11,7 +11,7 @@
   $dateModified = date("Y/m/d/H:i");
 
   function path($destination) {
-    echo "<script>window.location.href = '/attendance/teachers/$destination.php'</script>";
+    echo "<script>window.location.href = '/attendance/admin/$destination.php'</script>";
   }
 
   if (isset($_POST['edit'])) {
@@ -79,7 +79,7 @@
         <i class="fa-solid fa-xmark" id="close"></i>
 
         <a href="#">
-          <li>Welcome: <?php echo $_SESSION['name'] ?></li>
+          <li>Welcome: <?php echo $_SESSION['username'] ?></li>
         </a>
         <a href="../class-list.php">
           <li>Class List</li>

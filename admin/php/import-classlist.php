@@ -5,7 +5,7 @@
   session_start();
   $usersId = $_SESSION['id']; 
 
-  $dateModified = date("Y/m/d/H:i");
+  $dateModified = date("Y/m/d/h:i");
 
   //$dateModified = $date;
   //$section = $_SESSION['sections'];
@@ -60,4 +60,4 @@
   }
 
   // redirect to the page
-  header("Location: /attendance/teachers/class-list.php".$qstring);
+  header("Location: /attendance/admin/class-list.php".$qstring);
