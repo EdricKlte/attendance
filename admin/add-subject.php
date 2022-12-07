@@ -55,6 +55,9 @@
         <a href="register.php">
           <li>Register a Teacher</li>
         </a>
+        <a href="class-list-page.php">
+          <li>Class List</li>
+        </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>

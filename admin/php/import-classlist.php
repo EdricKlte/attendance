@@ -5,7 +5,7 @@
   session_start();
   $usersId = $_SESSION['id']; 
 
-  $dateModified = date("Y/m/d/h:i");
+  $dateModified = date("Y/m/d/H:i");
 
   //$dateModified = $date;
   //$section = $_SESSION['sections'];

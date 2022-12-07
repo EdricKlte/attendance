@@ -25,6 +25,7 @@
   right: 10px;
   top: 15px;
   cursor: pointer;
+  overflow-x: auto;
 }
 .main .sidebar .menu-container a {
   text-decoration: none;
@@ -67,8 +68,11 @@
 .main .sidebar .menu-container a:nth-child(7) {
   grid-row: 7/8;
 }
-.main .sidebar .menu-container form {
+.main .sidebar .menu-container a:nth-child(8) {
   grid-row: 8/9;
+}
+.main .sidebar .menu-container form {
+  grid-row: 9/10;
 }
 .main .sidebar .menu-container form input {
   font-size: 20px;
@@ -82,7 +86,8 @@
 .main .sidebar .menu-container a:nth-child(4):hover,
 .main .sidebar .menu-container a:nth-child(5):hover,
 .main .sidebar .menu-container a:nth-child(6):hover,
-.main .sidebar .menu-container a:nth-child(7):hover {
+.main .sidebar .menu-container a:nth-child(7):hover,
+.main .sidebar .menu-container a:nth-child(8):hover {
   background-color: var(--secondary-color);
 }
 
