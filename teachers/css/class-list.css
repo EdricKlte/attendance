@@ -61,7 +61,7 @@ body {
 .main .students-list {
   grid-row: 3/4;
   height: auto;
-  width: 900px;
+  width: auto;
   background-color: white;
   padding: 8px;
 
