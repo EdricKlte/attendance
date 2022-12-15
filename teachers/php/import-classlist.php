@@ -5,7 +5,7 @@
   session_start();
   $usersId = $_SESSION['id']; 
 
-  //$dateModified = $date;
+  //$dateModified = date("Y/m/d");;
   //$section = $_SESSION['sections'];
   //$subject = $_SESSION['subjects'];
   if (isset($_POST['import'])) {
@@ -33,15 +33,15 @@
           $section = $line[4];
           $subject = $line[5];
           // check whether students is already assigned in section/subject in the database with the same student no.
-          $prevQuery = "SELECT * FROM class_list WHERE students_id = '$line[0]' AND section = '$line[4]' AND subjects = '$line[5]' ";
+          $prevQuery = "SELECT * FROM class_list WHERE students_id = '$line[0]' AND section = '$line[4]' AND subject = '$line[5]' ";
           $prevResult = $con->query($prevQuery);
 
           if ($prevResult->num_rows > 0) {
             // update member data in the database
-            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subjects = '".$subject."',users_id ='".$usersId."', dateModified = curtime() WHERE students_id = '".$students_id."' ");
+            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."', dateModified = CURRENT_TIMESTAMP() WHERE students_id = '".$students_id."' ");
           } else {
             // insert class list in the database
-            $con->query("INSERT INTO class_list (id, students_id, last_name, first_name, course, section, subjects, users_id, dateModified) VALUES (null, '".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."', curtime() ) ");
+            $con->query("INSERT INTO class_list (id, students_id, last_name, first_name, course, section, subject, users_id, dateModified) VALUES (null, '".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."', CURRENT_TIMESTAMP() ) ");
           }
         }
 

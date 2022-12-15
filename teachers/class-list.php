@@ -91,7 +91,7 @@
 
           <tbody>
             <?php 
-              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subjects = '$subjects' ");
+              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subject = '$subjects' ");
 
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()){
@@ -102,7 +102,7 @@
               <td><?php echo $row['first_name'] ?></td>
               <td><?php echo $row['course'] ?></td>
               <td><?php echo $row['section'] ?></td>
-              <td><?php echo $row['subjects'] ?></td>
+              <td><?php echo $row['subject'] ?></td>
               <td><?php echo $row['dateModified']?></td>
               <td>
                 <form action="./php/classList-update.php" method="post">

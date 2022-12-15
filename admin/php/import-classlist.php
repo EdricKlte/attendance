@@ -5,8 +5,6 @@
   session_start();
   $usersId = $_SESSION['id']; 
 
-  $dateModified = date("Y/m/d/H:i");
-
   //$dateModified = $date;
   //$section = $_SESSION['sections'];
   //$subject = $_SESSION['subjects'];
@@ -40,10 +38,10 @@
 
           if ($prevResult->num_rows > 0) {
             // update member data in the database
-            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."', dateModified = '".$dateModified."' WHERE students_id = '".$students_id."' ");
+            $con->query("UPDATE class_list SET last_name = '".$last_name."', first_name = '".$first_name."', course = '".$course."', section = '".$section."', subject = '".$subject."',users_id ='".$usersId."', dateModified = CURRENT_TIMESTAMP() WHERE students_id = '".$students_id."' ");
           } else {
             // insert class list in the database
-            $con->query("INSERT INTO class_list (students_id, last_name, first_name, course, section, subject, users_id, dateModified) VALUES ('".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."','".$dateModified."' ) ");
+            $con->query("INSERT INTO class_list (id, students_id, last_name, first_name, course, section, subject, users_id, dateModified) VALUES (null, '".$students_id."', '".$last_name."', '".$first_name."', '".$course."', '".$section."', '".$subject."','".$usersId."', CURRENT_TIMESTAMP() ) ");
           }
         }
 
