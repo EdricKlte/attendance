@@ -5,8 +5,9 @@
   $id = $_SESSION['id'];
   $subjects = $_SESSION['subjects'];
   $sections = $_SESSION['sections'];
-  $query = "SELECT * FROM class_list WHERE users_id = '$id' AND subjects = '$subjects' AND sections = '$sections'";
-  $sql = mysqli_query($con, $query);
+  
+  // $query = "SELECT * FROM class_list WHERE users_id = '$id' AND subjects = '$subjects' AND sections = '$sections'";
+  // $sql = mysqli_query($con, $query);
 
 ?>
 
@@ -90,7 +91,7 @@
 
           <tbody>
             <?php 
-              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subject = '$subjects' AND section = '$sections'");
+              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subjects = '$subjects' ");
 
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()){
@@ -101,7 +102,7 @@
               <td><?php echo $row['first_name'] ?></td>
               <td><?php echo $row['course'] ?></td>
               <td><?php echo $row['section'] ?></td>
-              <td><?php echo $row['subject'] ?></td>
+              <td><?php echo $row['subjects'] ?></td>
               <td><?php echo $row['dateModified']?></td>
               <td>
                 <form action="./php/classList-update.php" method="post">
@@ -121,7 +122,7 @@
               } else {
                 ?>
             <tr>
-              <td colspan="6">No Class List Found...</td>
+              <td colspan="8">No Class List Found...</td>
             </tr>
             <?php
               }
