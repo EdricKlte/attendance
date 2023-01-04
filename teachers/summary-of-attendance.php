@@ -73,14 +73,24 @@
       <table>
         <tr>
           <th>Months</th>
+          <th>Year</th>
+          <th>Semester</th>
           <th>Open</th>
         </tr>
+        <tr><form action="summarize-semester.php" method="POST">
+          <td colspan="2">
+            <button value="first_sem" name="semester" type="submit">Summarize First Semester</button>
+          </td>
+          <td colspan="2">
+            <button value="second_sem" name="semester" type="submit">Summarize Second Semester</button>
+          </td>
+        </form></tr>
         <?php 
           $querySheetRecord1 = "SELECT * FROM sheet_record WHERE users_id='$usersId' AND sections='$sections' AND subjects = '$subjects' AND archive ='no' ";
           $sqlSheetRecord1 = mysqli_query($con, $querySheetRecord1);
           while($sheetRecord1 = mysqli_fetch_array($sqlSheetRecord1)){
               $MONTH = $sheetRecord1['month'];
-              /*$month;
+              $month;
               switch ($MONTH){
                 case 1 : 
                 $month = "January";
@@ -120,8 +130,10 @@
                 break;
                 default:
                 $month = "erroR";
-              }*/ 
-              echo "</td><td>"/*.$month.*/.$sheetRecord1['month'];
+              }
+              echo "</td><td>".$month;
+              echo "</td><td>".$sheetRecord1['year'];
+              echo "</td><td>".$sheetRecord1['semester'];
               echo "</td><td><a  href=attendance-summary.php?ID=".$sheetRecord1['id'].">OPEN</a> ";
               echo "</td></tr>";
           

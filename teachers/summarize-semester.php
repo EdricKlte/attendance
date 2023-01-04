@@ -9,24 +9,17 @@
   $query = "SELECT * FROM assign WHERE teachers = '$usersId' ";
   $sql = mysqli_query($con, $query);
 
+  $semester = $_POST['semester'];
 
   $teacher = $_SESSION['name'];
   $sections = $_SESSION['sections'];
   $subjects = $_SESSION['subjects'];
 
 
-  $id = $_GET['ID'];
-  $querySheetRecord = "SELECT * FROM sheet_record WHERE id = '$id'";
+  $querySheetRecord = "SELECT * FROM sheet_record WHERE sections = '$sections' AND subjects = '$subjects' AND users_id = '$usersId' AND semester = '$semester' ";
   $sqlSheetRecord = mysqli_query($con, $querySheetRecord);
-  if($sheetRecord = mysqli_fetch_array($sqlSheetRecord)){
-    $daysCount = $sheetRecord['days'];
-    $year = $sheetRecord['year'];
-    $month = $sheetRecord['month'];
-    $sheetID = $sheetRecord['id'];
-  }
-  else{
-    echo "error";
-  }
+  
+  
 ?>
 
 
@@ -80,9 +73,16 @@
       </ul>
     </div>
     <div class="table-container">
-      <h1>Summary of Attendance in the month of <?php
-       switch($month){
-        case 1 : 
+    <?php
+    //$totalPresent;
+    //$totalAbsent;
+    while($sheetRecord = mysqli_fetch_array($sqlSheetRecord)){
+  		$daysCount = $sheetRecord['days'];
+    	$year = $sheetRecord['year'];
+    	$month = $sheetRecord['month'];
+    	$sheetID = $sheetRecord['id'];
+    	switch($month){
+    		case 1 : 
                 $month1 = "January";
                 break;
                 case 2 : 
@@ -120,20 +120,9 @@
                 break;
                 default:
                 $month1 = "erroR";
-      }
-
-
-
-
-
-       echo $month1." ".$year; 
-
-
-
-     ?></h1>
-
-
-      <table>
+    	}
+      echo "<table><tr><td colspan=4><h1>Summary of Attendance for the Month of ".$month1." ".$year."</h1></td></tr>";?>
+      
         <tr>
           <th>Student No.</th>
           <th>Student</th>
@@ -171,14 +160,20 @@
             }
 
           }
+          //$totalPresent = $totalPresent + $present;
+          //$totalAbsent = $totalAbsent + $present;
           echo "<td>".$present."</td>";
           echo "<td>".$absent."</td></tr>";
 
         }//WHILE
-         
+        }
+        /*echo "<td colspan=2>TOTAL PRESENT AND ABSENT</td>";
+        echo "<td>".$totalPresent."</td>";
+        echo "<td>".$totalAbsent."</td>";*/
         ?>
+
       </table>
-      <form action="exportExcel.php?ID=<?php echo $sheetID ?>" method="post">
+      <form action="exportExcelSemester.php?ID=<?php echo $semester ?>" method="post">
         <button type="submit" value="export">Download Excel</button>
       </format>
     </div>

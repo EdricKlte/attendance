@@ -1,6 +1,7 @@
 <?php 
   require('./php/session.php');
-  
+  require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
+
   if(!empty($_GET)){
     $schoolyear = $_GET['year'];
     $schoolYEAR = explode("-",$schoolyear);
@@ -85,18 +86,18 @@
           <input type="checkbox" value="<?php$schoolYEAR[1];?>" id="schoolYEAR2"onchange="checkBOX1(this.id)">
           <?php echo $schoolYEAR[1]; ?>
           <br>
-          <button value="January" onclick="month(this.value)">January</button>
-          <button value="February" onclick="month(this.value)">February</button>
-          <button value="March" onclick="month(this.value)">March</button>
-          <button value="April" onclick="month(this.value)">April</button>
-          <button value="May" onclick="month(this.value)">May</button>
-          <button value="June" onclick="month(this.value)">June</button><br>
-          <button value="July" onclick="month(this.value)">July</button>
-          <button value="August" onclick="month(this.value)">August</button>
-          <button value="September" onclick="month(this.value)">September</button>
-          <button value="October" onclick="month(this.value)">October</button>
-          <button value="November" onclick="month(this.value)">November</button>
-          <button value="December" onclick="month(this.value)">December</button>
+          <button value="1" onclick="month(this.value)">January</button>
+          <button value="2" onclick="month(this.value)">February</button>
+          <button value="3" onclick="month(this.value)">March</button>
+          <button value="4" onclick="month(this.value)">April</button>
+          <button value="5" onclick="month(this.value)">May</button>
+          <button value="6" onclick="month(this.value)">June</button><br>
+          <button value="7" onclick="month(this.value)">July</button>
+          <button value="8" onclick="month(this.value)">August</button>
+          <button value="9" onclick="month(this.value)">September</button>
+          <button value="10" onclick="month(this.value)">October</button>
+          <button value="11" onclick="month(this.value)">November</button>
+          <button value="12" onclick="month(this.value)">December</button>
         </center>
       
         <form method="post" action="php/add-academic-year.php?year=<?php echo $_GET['year']; ?>">
@@ -113,10 +114,24 @@
 
     <div id="schoolYearID"><center>
       <form method="get" action="academic-year.php">
-      Enter School Year(2011-2012)<input type="text" id="year" name="year" required>
+      Enter New School Year(2011-2012)<input type="text" id="year" name="year" required>
       <input type="submit">
       </form>
-    </center></div>
+    <br>
+    <table>
+      <th>School Year</th>
+      
+        <?php
+        $query = "SELECT * FROM school_year";
+        $sql = mysqli_query($con,$query);
+        while($row = mysqli_fetch_array($sql)){
+          echo "<tr><td><center>".$row['academic_year']."</td></tr>";
+        }
+        ?>
+      
+    </table>
+  </center>
+  </div>
   </div>
 </body>
 
