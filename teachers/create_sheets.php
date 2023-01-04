@@ -3,15 +3,49 @@
 require('./php/session.php');
 require_once $_SERVER['DOCUMENT_ROOT']."/attendance/database/connect.php";
 
-$month;
-$year;
+//$month;
+//$year;
 $archive = "no";
 $teacher = $_SESSION['name'];
 $sections = $_POST['sections'];
 $subjects = $_POST['subjects'];
+$academic_year = $_POST['academic_year'];
 $usersId = $_SESSION['id']; 
+
+echo $academic_year;
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 if(isset($_POST['useDateToday'])){
 	$month = date('m');
   	$year = date('Y');
@@ -51,7 +85,7 @@ else if(isset($_POST['wholeYear'])){
 		}
 	}pathTo('attendance-record');
 }
-
+*/
 	?>
 
 

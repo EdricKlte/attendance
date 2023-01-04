@@ -232,8 +232,9 @@
 
       <form action="create_sheets.php" method="post" class="form-sheets">
 
-        <!-- date -->
+        <!-- date
         <label for="Create records for whole year">Create records for whole year</label>
+        
         <input type="checkbox" class="checkbox" id="checkbox1" name="wholeYear" onchange="toggleBox1()"
           value="true"><br>
         <label for="Use Current Date:">Use Current Date:</label>
@@ -243,8 +244,24 @@
         <input type="number" id="month" name="month" max="12"><br>
         <label for="Year:">Year:</label>
         <input type="number" id="year" name="year"><br>
+        -->
 
-        <!-- section -->
+        <!--section -->
+        
+        <label for="Academic Year:">Academic Year:</label>
+        <select id="academic_year" name="academic_year" class="academic_year">
+            <?php 
+            $queryAcademicYear = "SELECT * FROM school_year";
+            $sqlAcademicYear = mysqli_query($con, $queryAcademicYear);
+            while($row = mysqli_fetch_array($sqlAcademicYear)){
+              ?>
+            <option value="<?php echo $row['id'] ?>">
+            <?php
+            echo $row['academic_year'];
+            }
+            ?>
+          </option>
+        </select>
         <label for="Section:">Section:</label>
         <select id="sections" name="sections" class="sections">
           <option value="<?php echo $_SESSION['sections']; ?>">

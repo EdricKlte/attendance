@@ -55,6 +55,9 @@
         <a href="class-list-page.php">
           <li>Class List</li>
         </a>
+        <a href="academic-year.php">
+          <li>Academic Year</li>
+        </a>
         <form action="/attendance/admin/php/logout.php" method="post">
           <input type="submit" value="Logout" />
         </form>
