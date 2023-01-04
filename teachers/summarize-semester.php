@@ -73,6 +73,19 @@
       </ul>
     </div>
     <div class="table-container">
+      <table>
+        <tr>
+          <td colspan="4">
+            <?php 
+            if($semester == "first_sem"){
+              echo "<h1>Summary of Attendance for the First Semester</h1>"; 
+            }
+            else if($semester == "second_sem"){
+              echo "<h1>Summary of  Attendance for the Second Semester</h1>";
+            }
+            ?>
+          </td>
+        </tr>
     <?php
     //$totalPresent;
     //$totalAbsent;
@@ -121,7 +134,7 @@
                 default:
                 $month1 = "erroR";
     	}
-      echo "<table><tr><td colspan=4><h1>Summary of Attendance for the Month of ".$month1." ".$year."</h1></td></tr>";?>
+      echo "<tr><td colspan=4><h1>".$month1." ".$year."</h1></td></tr>";?>
       
         <tr>
           <th>Student No.</th>

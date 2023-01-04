@@ -74,10 +74,11 @@
       
       
       <div class="MonthContainer" id="MonthContainer">
+        <center>
         First Sem<input type="checkbox" value="firstSem" id="firstSem" onchange="checkBOX(this.value)">     
           <br>
-        Second Sem<input type="checkbox" value="secondSem" id="secondSem" onchange="checkBOX(this.value)">
-        <center>
+        Second Sem<input type="checkbox" value="secondSem" id="secondSem" onchange="checkBOX(this.value)"><br><br>
+        
           
           
           Year<br>
@@ -86,18 +87,18 @@
           <input type="checkbox" value="<?php$schoolYEAR[1];?>" id="schoolYEAR2"onchange="checkBOX1(this.id)">
           <?php echo $schoolYEAR[1]; ?>
           <br>
-          <button value="1" onclick="month(this.value)">January</button>
-          <button value="2" onclick="month(this.value)">February</button>
-          <button value="3" onclick="month(this.value)">March</button>
-          <button value="4" onclick="month(this.value)">April</button>
-          <button value="5" onclick="month(this.value)">May</button>
-          <button value="6" onclick="month(this.value)">June</button><br>
-          <button value="7" onclick="month(this.value)">July</button>
-          <button value="8" onclick="month(this.value)">August</button>
-          <button value="9" onclick="month(this.value)">September</button>
-          <button value="10" onclick="month(this.value)">October</button>
-          <button value="11" onclick="month(this.value)">November</button>
-          <button value="12" onclick="month(this.value)">December</button>
+          <button value="1" onclick="month(this.value)">January(1)</button>
+          <button value="2" onclick="month(this.value)">February(2)</button>
+          <button value="3" onclick="month(this.value)">March(3)</button>
+          <button value="4" onclick="month(this.value)">April(4)</button>
+          <button value="5" onclick="month(this.value)">May(5)</button>
+          <button value="6" onclick="month(this.value)">June(6)</button><br>
+          <button value="7" onclick="month(this.value)">July(7)</button>
+          <button value="8" onclick="month(this.value)">August(8)</button>
+          <button value="9" onclick="month(this.value)">September(9)</button>
+          <button value="10" onclick="month(this.value)">October(10)</button>
+          <button value="11" onclick="month(this.value)">November(11)</button>
+          <button value="12" onclick="month(this.value)">December(12)</button>
         </center>
       
         <form method="post" action="php/add-academic-year.php?year=<?php echo $_GET['year']; ?>">
