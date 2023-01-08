@@ -23,8 +23,9 @@
 
   <!-- js -->
   <script src="https://kit.fontawesome.com/8cbc2e0f0e.js" crossorigin="anonymous"></script>
-  
-  
+  <script src="./js/sidebar.js" defer></script>
+
+
 </head>
 
 <body>
@@ -71,20 +72,20 @@
     </div>
 
     <div class="container">
-      
-      
+
+
       <div class="MonthContainer" id="MonthContainer">
         <center>
-        First Sem<input type="checkbox" value="firstSem" id="firstSem" onchange="checkBOX(this.value)">     
+          First Sem<input type="checkbox" value="firstSem" id="firstSem" onchange="checkBOX(this.value)">
           <br>
-        Second Sem<input type="checkbox" value="secondSem" id="secondSem" onchange="checkBOX(this.value)"><br><br>
-        
-          
-          
+          Second Sem<input type="checkbox" value="secondSem" id="secondSem" onchange="checkBOX(this.value)"><br><br>
+
+
+
           Year<br>
-          <input type="checkbox" value="<?php$schoolYEAR[0];?>" id="schoolYEAR1" onchange="checkBOX1(this.id)" >
+          <input type="checkbox" value="<?php$schoolYEAR[0];?>" id="schoolYEAR1" onchange="checkBOX1(this.id)">
           <?php echo $schoolYEAR[0]; ?><br>
-          <input type="checkbox" value="<?php$schoolYEAR[1];?>" id="schoolYEAR2"onchange="checkBOX1(this.id)">
+          <input type="checkbox" value="<?php$schoolYEAR[1];?>" id="schoolYEAR2" onchange="checkBOX1(this.id)">
           <?php echo $schoolYEAR[1]; ?>
           <br>
           <button value="1" onclick="month(this.value)">January(1)</button>
@@ -100,28 +101,29 @@
           <button value="11" onclick="month(this.value)">November(11)</button>
           <button value="12" onclick="month(this.value)">December(12)</button>
         </center>
-      
+
         <form method="post" action="php/add-academic-year.php?year=<?php echo $_GET['year']; ?>">
-        
-        <h3>Dates</h3>
-        <div id="firstSemester">
-        </div>
-        <input type="submit">
+
+          <h3>Dates</h3>
+          <div id="firstSemester">
+          </div>
+          <input type="submit">
         </form>
       </div>
     </div>
-    </div>
+  </div>
 
 
-    <div id="schoolYearID"><center>
+  <div id="schoolYearID">
+    <center>
       <form method="get" action="academic-year.php">
-      Enter New School Year(2011-2012)<input type="text" id="year" name="year" required>
-      <input type="submit">
+        Enter New School Year(2011-2012)<input type="text" id="year" name="year" required>
+        <input type="submit">
       </form>
-    <br>
-    <table>
-      <th>School Year</th>
-      
+      <br>
+      <table>
+        <th>School Year</th>
+
         <?php
         $query = "SELECT * FROM school_year";
         $sql = mysqli_query($con,$query);
@@ -129,9 +131,9 @@
           echo "<tr><td><center>".$row['academic_year']."</td></tr>";
         }
         ?>
-      
-    </table>
-  </center>
+
+      </table>
+    </center>
   </div>
   </div>
 </body>
@@ -144,100 +146,91 @@
 
 
 <script type="text/javascript">
-  function month(month1){
-    var firstSEMbox = document.getElementById('firstSem');
-    var secondSEMbox = document.getElementById('secondSem');
-    var schoolYEAR1box = document.getElementById('schoolYEAR1');
-    var schoolYEAR2box = document.getElementById('schoolYEAR2');
-    var schoolYEAR;
-    var semester;
-    if(firstSEMbox.checked == true){
-      semester = "firstSem";
-    }
-    else if(secondSEMbox.checked == true){
-      semester = "secondSem";
-    }
-
-    if(schoolYEAR1box.checked == true){
-      schoolYEAR = <?php echo $schoolYEAR[0]?>
-    }
-    else if(schoolYEAR2box.checked == true){
-      schoolYEAR = <?php echo $schoolYEAR[1]?>
-    }
-    if(firstSEMbox.checked == true ||secondSEMbox.checked == true){
-      if(schoolYEAR1box.checked == true || schoolYEAR2box.checked == true){
-        var firstSem = document.getElementById('firstSemester');
-        //var year = document.getElementById('firstSemyear').value;
-        var months = document.createElement('input');
-
-        var textcontext = month1 + "-" + schoolYEAR + ", " + semester;
-        var text = document.createTextNode(textcontext);
-
-        months.setAttribute("class","try");
-        months.setAttribute("value",textcontext);
-        months.setAttribute("id",month1);
-        months.setAttribute("name",textcontext);
-        months.appendChild(text);
-
-        months.setAttribute("style",'width: 200px; height: 50px; cursor: pointer !important;');
-
-
-        months.addEventListener('click',function remove(event){
-          var id = document.getElementById(this.id);
-          this.parentNode.removeChild(this);
-        });
-        firstSem.appendChild(months);
-        }
-        else{
-          alert("Enter School Year");
-        }
-      }
-    else{
-      alert("Enter Semester");
-    }
+function month(month1) {
+  var firstSEMbox = document.getElementById('firstSem');
+  var secondSEMbox = document.getElementById('secondSem');
+  var schoolYEAR1box = document.getElementById('schoolYEAR1');
+  var schoolYEAR2box = document.getElementById('schoolYEAR2');
+  var schoolYEAR;
+  var semester;
+  if (firstSEMbox.checked == true) {
+    semester = "firstSem";
+  } else if (secondSEMbox.checked == true) {
+    semester = "secondSem";
   }
 
-  function checkBOX(box){
-    var firstSem = document.getElementById('firstSem');
-    var secondSem = document.getElementById('secondSem');
-    if(box == "firstSem"){
-        secondSem.checked = false;
-    }
-    else if(box == "secondSem"){
-        firstSem.checked = false;
-        //secondSem.checked = "false";
-    }
+  if (schoolYEAR1box.checked == true) {
+    schoolYEAR = <?php echo $schoolYEAR[0]?>
+  } else if (schoolYEAR2box.checked == true) {
+    schoolYEAR = <?php echo $schoolYEAR[1]?>
   }
-  function checkBOX1(box){
-    var schoolYEAR1 = document.getElementById('schoolYEAR1');
-    var schoolYEAR2 = document.getElementById('schoolYEAR2');
-    if(box == "schoolYEAR1"){
-        schoolYEAR2.checked = false;
+  if (firstSEMbox.checked == true || secondSEMbox.checked == true) {
+    if (schoolYEAR1box.checked == true || schoolYEAR2box.checked == true) {
+      var firstSem = document.getElementById('firstSemester');
+      //var year = document.getElementById('firstSemyear').value;
+      var months = document.createElement('input');
+
+      var textcontext = month1 + "-" + schoolYEAR + ", " + semester;
+      var text = document.createTextNode(textcontext);
+
+      months.setAttribute("class", "try");
+      months.setAttribute("value", textcontext);
+      months.setAttribute("id", month1);
+      months.setAttribute("name", textcontext);
+      months.appendChild(text);
+
+      months.setAttribute("style", 'width: 200px; height: 50px; cursor: pointer !important;');
+
+
+      months.addEventListener('click', function remove(event) {
+        var id = document.getElementById(this.id);
+        this.parentNode.removeChild(this);
+      });
+      firstSem.appendChild(months);
+    } else {
+      alert("Enter School Year");
     }
-    else if(box == "schoolYEAR2"){
-        schoolYEAR1.checked = false;
-        
-    }
+  } else {
+    alert("Enter Semester");
   }
+}
 
+function checkBOX(box) {
+  var firstSem = document.getElementById('firstSem');
+  var secondSem = document.getElementById('secondSem');
+  if (box == "firstSem") {
+    secondSem.checked = false;
+  } else if (box == "secondSem") {
+    firstSem.checked = false;
+    //secondSem.checked = "false";
+  }
+}
 
+function checkBOX1(box) {
+  var schoolYEAR1 = document.getElementById('schoolYEAR1');
+  var schoolYEAR2 = document.getElementById('schoolYEAR2');
+  if (box == "schoolYEAR1") {
+    schoolYEAR2.checked = false;
+  } else if (box == "schoolYEAR2") {
+    schoolYEAR1.checked = false;
 
-
+  }
+}
 </script>
 
 <?php
 if(empty($_GET['year'])){
     ?>
-    <script>
-      document.getElementById("MonthContainer").style.display = "none";
-    </script>
-    <?php
+<script>
+document.getElementById("MonthContainer").style.display = "none";
+</script>
+<?php
   }
 else{
   ?>
-  <script>
-    document.getElementById('schoolYearID').style.display = "none";
-  </script>
-  <?php
+<script>
+document.getElementById('schoolYearID').style.display = "none";
+</script>
+<?php
 }
 ?>
