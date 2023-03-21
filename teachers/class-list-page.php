@@ -60,8 +60,8 @@
 
     <!-- container -->
     <div class="container">
-      <h1>Class List for Subjects</h1>
 
+      <h1>Class List for Subjects</h1>
       <table>
         <tr>
           <th>Subjects</th>
@@ -73,18 +73,26 @@
           <td><?php echo $results['subjects'] ?></td>
           <td><?php echo $results['sections'] ?></td>
           <td>
-            <form action="class-list-page.php" method="get">
+            <form action="class-list.php" method="post">
               <button type="submit" class="class-list-btn" id="OpenClass" name="OpenClass" value="<?php 
                 echo $results['subjects']."+".$results['sections'];
                 ?>">OPEN CLASS LIST
               </button>
-              
+              </form>
             </form>
           </td>
         </tr>
         <?php } ?>
-
+        <tr>
+          <form action="class-list.php" method="post">
+            <td colspan="3" >
+              <button class="class-list-btn" id="OpenClass" value="allList">Show All</button> 
+            </td>
+            <input type="text" value="allList" name="OpenClass" style="visibility: hidden;">
+          </form>
+        </tr>
       </table>
+      
     </div>
   </div>
 </body>

@@ -75,6 +75,9 @@
 
       <!-- student list -->
       <div class="students-list">
+        <form action="class-list-page.php" method="get">
+          <button type="submit" class="back">Back</button><br>
+        </form><br>
         <table>
           <thead>
             <tr>
@@ -90,12 +93,19 @@
           </thead>
 
           <tbody>
-            <?php 
-              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subject = '$subjects' ");
+            <?php
+            $openClass = $_POST["OpenClass"]; 
 
+            if($openClass != "allList"){
+              $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' AND subject = '$subjects' AND section = '$sections' ");
+            }
+            else{
+                $result = $con->query("SELECT * FROM class_list WHERE users_id = '$id' ");
+            }
               if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()){
                   ?>
+
             <tr>
               <td><?php echo $row['students_id'] ?></td>
               <td><?php echo $row['last_name'] ?></td>
