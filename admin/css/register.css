@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-@import url("header.css");
-@import url("sidebar.css");
+/* @import url("header.css");
+@import url("sidebar.css"); */
+@import url("../components/navbar.php");
 
 html,
 body {
@@ -13,18 +14,40 @@ body {
   --secondary-color: #d79a2a;
   --header-color: white;
 }
-.main {
+
+nav {
+  background-color: var(--main-color);
+}
+
+.__sjc-logo {
+  height: 100px;
+}
+
+.__btn {
+  background-color: var(--main-color);
+  border: none;
+  height: 45px;
+}
+
+#bars {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* #title {
+  background-color: var(--secondary-color);
+} */
+
+/* .main {
   background-color: var(--main-color);
   height: auto;
 
-  /* layout */
   display: grid;
   grid-template-rows: 130px 1fr 1fr;
   justify-items: center;
   row-gap: 20px;
 }
 
-/* main content */
 .main .container {
   grid-row: 2/3;
 
@@ -58,7 +81,6 @@ body {
   cursor: pointer;
 }
 
-/* container2 */
 .main .container2 {
   grid-row: 3/4;
 
@@ -110,4 +132,4 @@ tr:nth-child(even) {
   height: 30px;
   width: 100px;
   cursor: pointer;
-}
+} */
